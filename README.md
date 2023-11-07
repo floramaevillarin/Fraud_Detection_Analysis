@@ -14,5 +14,5 @@ push your code into repository. Generate new token using this link: https://gith
 
 git remote add origin https://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@github.com/bdm3014/fraud-detection.git
 
-the end..
+
 
