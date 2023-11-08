@@ -1,0 +1,82 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Fraud Prediction API",
+    "description": "An API for Fraud Prediction.",
+    "version": "0.1"
+  },
+  "basePath": "/api",
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+
+  "paths": {
+    "/prediction": {
+      "get": {
+        "summary": "Returns 0 or 1 as a response of to the fraud prediction model.",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "requestBody",
+            "description": "Request body for your endpoint",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "param01": {
+                  "type": "string"
+                },
+                "param02": {
+                  "type": "string"
+                },
+                "param03": {
+                  "type": "string"
+                },
+                "param04": {
+                  "type": "string"
+                },
+                "param05": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "param01",
+                "param02",
+                "param03",
+                "param04",
+                "param05"
+              ]
+            }
+          }
+        ],
+        
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "result": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
