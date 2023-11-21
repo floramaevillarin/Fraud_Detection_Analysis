@@ -14,7 +14,7 @@
           crossorigin="anonymous">
 </head>
 <body>
-    <form action="result.html" method="get">
+    <!--<form action = "result.html" method = "get">-->
     <div class = "container">
         <div class = "row">
            <div class = "col-md-12">
@@ -34,15 +34,21 @@
            <div class = "col-md-10">
            </div>
            <div class = "col-md-1">
-              <input type = "submit" value = "Predict">
+              <input type = "submit" value = "Predict" onclick = "getPrediction()">
            </div>
            <div class = "col-md-1">
               <input type = "reset" value = "Reset">
            </div>
         </div>
-     </div>
-   </form>
-     <!--javascript-->
-     <script type = "text/javascript" src = "js/newinput.js"></script>
+        <div class = "row">
+           <div class = "col-md-12">
+              <label id = "lblResult" name = "lblResult">
+              </label>
+           </div>
+      </div>
+    </div>
+    <!--</form>-->
+    <!--javascript-->
+    <script type = "text/javascript" src = "js/newinput.js"></script>
 </body>
 </html>

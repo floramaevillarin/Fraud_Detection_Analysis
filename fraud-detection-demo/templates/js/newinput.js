@@ -51,7 +51,8 @@ function read_json() {
                     textField.required = "True";
                     textField.id = field.name;
                     textField.name = field.name;
-                    textField.className = "textField";
+                  //textField.className = "textField";
+                    textField.className = "param";
                     tdColCtrl.appendChild(textField);
                     break;
 
@@ -61,7 +62,8 @@ function read_json() {
                     txtNumField.required = "True";
                     txtNumField.id = field.name;
                     txtNumField.name = field.name;
-                    txtNumField.className = "numField";
+                  //txtNumField.className = "numField";
+                    txtNumField.className = "param numField";
                     txtNumField.min = field.min;
                     txtNumField.max = field.max;
                     txtNumField.step = field.step;
@@ -72,6 +74,7 @@ function read_json() {
                     let listField = document.createElement("select");
                     listField.id = field.name;
                     listField.name = field.name;
+                    listField.className = "param";
                     tdColCtrl.appendChild(listField);
                     
                     for (i in field.values) {
@@ -91,7 +94,8 @@ function read_json() {
                         rdField.name = field.name;
                         rdField.id = field.values[i].code;
                         rdField.value = field.values[i].code;
-                        //rdField.textContent = field.values[i].value;
+                        rdField.className = "param";
+                      //rdField.textContent = field.values[i].value;
                         tdColCtrl.appendChild(rdField);
 
                         let lblField = document.createElement("label");
@@ -105,6 +109,67 @@ function read_json() {
             }
  
        });
+   });
+
+ }
+
+ function getPrediction()
+ {
+   // defining API rest URL
+   const API_URL = "https://fraud-detection-demo-5b6679a4c9d0.herokuapp.com/api/prediction"
+
+   // initializing the label result
+   const lblResult = document.getElementById("lblResult");
+   lblResult.textContent = "PREDICTING...";
+
+   // reading input params
+   const paramList = document.getElementsByClassName("param");
+   let params = {};
+   
+   for (i in paramList) {
+       switch (paramList[i].type) {
+          case "text":
+               console.log(paramList[i].name + " : ", paramList[i].value);
+               params[paramList[i].name] = paramList[i].value;
+               break;
+          case "number":
+               console.log(paramList[i].name + " : ", paramList[i].value);
+               params[paramList[i].name] = paramList[i].value;
+               break;
+          case "select-one":
+               console.log(paramList[i].name + " : ", paramList[i].value);
+               params[paramList[i].name] = paramList[i].value;
+               break;
+          case "radio":
+               if (paramList[i].checked) {
+                  console.log(paramList[i].name + " : ", paramList[i].value);
+                  params[paramList[i].name] = paramList[i].value;
+               }
+               break;
+       }
+   };
+   
+   // making up the API request
+   let requestHead = new Headers();
+   requestHead.append("Content-Type", "application/json");
+   
+   /*
+   let param = {};
+   param.param01 = "1";
+   param.param02 = "2";
+   param.param03 = "3";
+   param.param04 = "4";
+   param.param05 = "5";
+   */
+   
+   let requestOpt = {}; 
+   requestOpt.method = "POST"
+   requestOpt.body = JSON.stringify(params);
+   requestOpt.headers = requestHead;
+   
+   fetch(`${API_URL}`, requestOpt).then(res => res.json()).catch(error => console.error('Error:', error)).then(response => {
+        const result = response.result;
+        lblResult.textContent = "Prediction: " + result;
    });
 
  }
