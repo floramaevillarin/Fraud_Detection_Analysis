@@ -1,6 +1,7 @@
 read_json();
 
 function read_json() {
+   const bgReqColor = "#FCFDE8";
 
    fetch(window.location.protocol + "//" + window.location.host + '/data/fields.json').then(res => res.json()).then(fields => {
          
@@ -48,35 +49,73 @@ function read_json() {
                case "text":
                     let textField = document.createElement("input");
                     textField.type = "text";
-                    textField.required = true;
                     textField.id = field.name;
                     textField.name = field.name;
                     textField.label = field.label;
                     textField.className = "param textField";
+                    
+                    if (Boolean(field.required))
+                    {
+                       textField.required = true;
+                       textField.style = "background-color:" + bgReqColor + ";";  
+                    };
+                    
                     tdColCtrl.appendChild(textField);
                     break;
-
+                    
                case "number":
                     let txtNumField = document.createElement("input");
                     txtNumField.type = "number";
-                    txtNumField.required = true;
                     txtNumField.id = field.name;
                     txtNumField.name = field.name;
                     txtNumField.label = field.label;
-                    txtNumField.className = "param txtNumField";
                     txtNumField.min = field.min;
                     txtNumField.max = field.max;
                     txtNumField.step = field.step;
+                    txtNumField.className = "param txtNumField";
+
+                    if (Boolean(field.required))
+                    {
+                       txtNumField.required = true;
+                       txtNumField.style = "background-color:" + bgReqColor + ";";
+                    };
+
                     tdColCtrl.appendChild(txtNumField);
+                    break;
+                    
+               case "decimal":
+                    let txtDecField = document.createElement("input");
+                    txtDecField.type = "number";
+                    txtDecField.id = field.name;
+                    txtDecField.name = field.name;
+                    txtDecField.label = field.label;
+                    txtDecField.min = field.min;
+                    txtDecField.max = field.max;
+                    txtDecField.step = field.step;
+                    txtDecField.className = "param txtDecField";
+
+                    if (Boolean(field.required))
+                    {
+                       txtDecField.required = true;
+                       txtDecField.style = "background-color:" + bgReqColor + ";";
+                    };
+
+                    tdColCtrl.appendChild(txtDecField);
                     break;
                     
                case "list": 
                     let listField = document.createElement("select");
                     listField.id = field.name;
                     listField.name = field.name;
-                    listField.required = true;
                     listField.label = field.label;
                     listField.className = "param listField";
+                    
+                    if (Boolean(field.required))
+                    {
+                         listField.required = true;
+                         listField.style = "background-color:" + bgReqColor + ";";
+                    }
+                    
                     tdColCtrl.appendChild(listField);
                     
                     for (i in field.values) {
@@ -126,16 +165,23 @@ function read_json() {
          switch (paramList[i].type) {
             case "text":
             case "select-one":
+
+                 if (paramList[i].required)
+                 {
                  if (paramList[i].value == "")
                  {
                     alert(paramList[i].label + " is required!");
                     paramList[i].focus();
                     return;              
                  };
+                 };
                  
                  break;
 
             case "number":
+                 
+                 if (paramList[i].required)
+                 {
                  if (paramList[i].value == "")
                  {
                     alert(paramList[i].label + " is required!");
@@ -147,7 +193,7 @@ function read_json() {
                     const valField = parseInt(paramList[i].value);
                     const minField = parseInt(paramList[i].min);
                     const maxField = parseInt(paramList[i].max);
-
+   
                     if (valField < minField || valField > maxField)
                     {
                        alert(paramList[i].label + " must be between " + minField + " and " + maxField);
@@ -155,9 +201,37 @@ function read_json() {
                        return;
                     };
                  };
+                 };
                  
                  break;
-
+                 
+            case "decimal":
+                 
+                 if (paramList[i].required)
+                 {
+                    if (paramList[i].value == "")
+                    {
+                       alert(paramList[i].label + " is required!");
+                       paramList[i].focus();
+                       return;
+                    } 
+                    else
+                    {
+                       const valField = parseInt(paramList[i].value);
+                       const minField = parseInt(paramList[i].min);
+                       const maxField = parseInt(paramList[i].max);
+   
+                       if (valField < minField || valField > maxField)
+                       {
+                          alert(paramList[i].label + " must be between " + minField + " and " + maxField);
+                          paramList[i].focus();
+                          return;
+                       };
+                    };
+                 };
+                 
+                 break;
+                 
             case "radio":
                  break;
          };
@@ -182,7 +256,8 @@ function read_json() {
    for (i in paramList) {
        switch (paramList[i].type) {
           case "text":
-          case "number":              
+          case "number":
+          case "decimal":
           case "select-one":
                console.log(paramList[i].name + " : ", paramList[i].value);
                params[paramList[i].name] = paramList[i].value;
@@ -223,12 +298,16 @@ function read_json() {
 
  function reset()
  {
+     const lblResult = document.getElementById("lblResult");
+     lblResult.textContent = "";
+     
      const paramList = document.getElementsByClassName("param");
      
      for (i in paramList) {
          switch (paramList[i].type) {
             case "text":
             case "number":
+            case "decimal":
             case "select-one":
                  document.getElementById(paramList[i].id).value = "";
                  break;
@@ -238,4 +317,9 @@ function read_json() {
          };
      };
 
+ }
+
+ function recent_predictions()
+ {
+   window.open("index.html", "_self");
  }
