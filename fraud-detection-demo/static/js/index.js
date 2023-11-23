@@ -3,8 +3,7 @@ setTimeout(read_data, 100);
 
 function read_json() {
 
-   fetch('data/fields.json').then(res => res.json()).then(fields => {
-        
+   fetch(window.location.protocol + "//" + window.location.host + '/data/fields.json').then(res => res.json()).then(fields => {
         const HTMLResponse = document.getElementById("recent_div");
         
         // table
@@ -33,7 +32,7 @@ function read_json() {
 
 function read_data() {
    
-   fetch('data/data.csv').then(res => res.text()).then(content => {
+   fetch(window.location.protocol + "//" + window.location.host + '/data/data.csv').then(res => res.text()).then(content => {
         
         const HTMLResponse = document.getElementById("recent_table");
         

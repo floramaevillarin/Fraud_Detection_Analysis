@@ -19,7 +19,7 @@
 
   "paths": {
     "/prediction": {
-      "get": {
+      "post": {
         "summary": "Returns 0 or 1 as a response of to the fraud prediction model.",
         "consumes": [
           "application/json"
