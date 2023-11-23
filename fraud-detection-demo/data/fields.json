@@ -2,15 +2,15 @@
   {
     "name": "TransactionAmt",
     "label": "Transaction Payment Amount in USD",
-    "type": "number",
+    "type": "decimal",
     "required": true,
     "min": 0.01,
-    "max": 1000000
+    "max": 1000000.00
   },
   {
     "name": "ProductCD",
     "label": "Product Code",
-    "type": "text",
+    "type": "list",
     "required": true,
     "values": [
       { "code": "C", "value": "Product C" },
@@ -44,7 +44,7 @@
   {
     "name": "card6",
     "label": "Payment Card Information, Credit or Debit?",
-    "type": "text",
+    "type": "list",
     "required": true,
     "values": [
       { "code": "credit", "value": "Credit Card" },
@@ -113,7 +113,7 @@
   {
     "name": "M3",
     "label": "Match Feature 3",
-    "type": "text",
+    "type": "list",
     "required": false,
     "values": [
       { "code": "",  "value": "" },
@@ -126,7 +126,7 @@
   {
     "name": "M4",
     "label": "Match Feature 4",
-    "type": "text",
+    "type": "list",
     "required": false,
     "values": [
       { "code": "",  "value": "" },
@@ -140,7 +140,7 @@
   {
     "name": "M5",
     "label": "Match Feature 5",
-    "type": "text",
+    "type": "list",
     "required": false,
     "values": [
       { "code": "",  "value": "" },
@@ -153,7 +153,7 @@
   {
     "name": "M6",
     "label": "Match Feature 6",
-    "type": "text",
+    "type": "list",
     "required": false,
     "values": [
       { "code": "",  "value": "" },
@@ -166,7 +166,7 @@
   {
     "name": "V13",
     "label": "Vesta Feature 13",
-    "type": "text",
+    "type": "list",
     "required": false,
     "values": [
       { "code": "",  "value": "" },
@@ -182,7 +182,7 @@
   {
     "name": "V20",
     "label": "Vesta Feature 20",
-    "type": "text",
+    "type": "list",
     "required": false,
     "values": [
       { "code": "",   "value": "" },
@@ -207,7 +207,7 @@
   {
     "name": "V30",
     "label": "Vesta Feature 30",
-    "type": "text",
+    "type": "list",
     "required": false,
     "values": [
       { "code": "",   "value": "" },
@@ -226,7 +226,7 @@
   {
     "name": "V44",
     "label": "Vesta Feature 44",
-    "type": "text",
+    "type": "list",
     "required": false,
     "values": [
       { "code": "",   "value": "" },
@@ -284,7 +284,7 @@
   {
     "name": "V47",
     "label": "Vesta Feature 47",
-    "type": "text",
+    "type": "list",
     "required": false,
     "values": [
       { "code": "",   "value": "" },
@@ -306,7 +306,7 @@
   {
     "name": "V54",
     "label": "Vesta Feature 54",
-    "type": "text",
+    "type": "list",
     "required": false,
     "values": [
       { "code": "",   "value": "" },
@@ -322,7 +322,7 @@
   {
     "name": "V62",
     "label": "Vesta Feature 62",
-    "type": "text",
+    "type": "list",
     "required": false,
     "values": [
       { "code": "",   "value": "" },
@@ -342,7 +342,7 @@
   {
     "name": "V67",
     "label": "Vesta Feature 67",
-    "type": "text",
+    "type": "list",
     "required": false,
     "values": [
       { "code": "",   "value": "" },
@@ -360,7 +360,7 @@
   {
     "name": "V82",
     "label": "Vesta Feature 82",
-    "type": "text",
+    "type": "list",
     "required": false,
     "values": [
       { "code": "",   "value": "" },
@@ -377,7 +377,7 @@
   {
     "name": "V86",
     "label": "Vesta Feature 86",
-    "type": "text",
+    "type": "list",
     "required": false,
     "values": [
       { "code": "",   "value": "" },
@@ -417,7 +417,7 @@
   {
     "name": "V156",
     "label": "Vesta Feature 156",
-    "type": "text",
+    "type": "list",
     "required": false,
     "values": [
       { "code": "",   "value": "" },
@@ -459,7 +459,7 @@
   {
     "name": "V171",
     "label": "Vesta Feature 171",
-    "type": "text",
+    "type": "list",
     "required": false,
     "values": [
       { "code": "",   "value": "" },
@@ -530,7 +530,7 @@
   {
     "name": "V198",
     "label": "Vesta Feature 198",
-    "type": "text",
+    "type": "list",
     "required": false,
     "values": [
       { "code": "",   "value": "" },
@@ -569,7 +569,7 @@
   {
     "name": "V283",
     "label": "Vesta Feature 283",
-    "type": "text",
+    "type": "list",
     "required": false,
     "values": [
       { "code": "",   "value": "" },
@@ -647,7 +647,7 @@
   {
     "name": "V307",
     "label": "Vesta Feature 307 (values from 0.00 to 146000.00)",
-    "type": "number",
+    "type": "decimal",
     "required": false,
     "min": 0,
     "max": 146000.00
@@ -663,7 +663,7 @@
   {
     "name": "DeviceType",
     "label": "Identity Information, Device type",
-    "type": "text",
+    "type": "list",
     "required": true,
     "values": [
       { "code": "mobile",  "value": "mobile" },
@@ -675,7 +675,7 @@
   {
     "name": "id_01",
     "label": "Identity Information, Feature 01",
-    "type": "text",
+    "type": "list",
     "required": true,
     "values": [
       { "code": "0",   "value": "0" },
@@ -784,7 +784,7 @@
   {
     "name": "id_09",
     "label": "Identity Information, Feature 09",
-    "type": "text",
+    "type": "list",
     "required": false,
     "values": [
       { "code": "",    "value": "" },
@@ -863,7 +863,7 @@
   {
     "name": "id_30",
     "label": "Identity Information, Operating System",
-    "type": "text",
+    "type": "list",
     "required": false,
     "values": [
       { "code": "",                 "value": "" },
@@ -940,9 +940,9 @@
     "encoded_list": "list-id_30-to-id_30_target_encoded.json"
   },
   {
-    "name": "id_30",
+    "name": "id_31",
     "label": "Identity Information, Web Browser",
-    "type": "text",
+    "type": "list",
     "required": false,
     "values": [
       { "code": "",                       "value": "" },
@@ -1032,7 +1032,7 @@
       {"code": "samsung browser 6.4",     "value": "samsung browser 6.4"},
       {"code": "samsung browser 7.0",     "value": "samsung browser 7.0"}
     ],
-    "encoded_name": "id_30_target_encoded",
-    "encoded_list": "list-id_30-to-id_30_target_encoded.json"
+    "encoded_name": "id_31_target_encoded",
+    "encoded_list": "list-id_31-to-id_31_target_encoded.json"
   }
 ]
