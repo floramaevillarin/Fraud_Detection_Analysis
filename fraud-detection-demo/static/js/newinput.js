@@ -1,4 +1,4 @@
-read_json()
+read_json();
 
 function read_json() {
 
@@ -48,20 +48,22 @@ function read_json() {
                case "text":
                     let textField = document.createElement("input");
                     textField.type = "text";
-                    textField.required = "True";
+                    textField.required = true;
                     textField.id = field.name;
                     textField.name = field.name;
-                    textField.className = "textField";
+                    textField.label = field.label;
+                    textField.className = "param textField";
                     tdColCtrl.appendChild(textField);
                     break;
 
                case "number":
                     let txtNumField = document.createElement("input");
                     txtNumField.type = "number";
-                    txtNumField.required = "True";
+                    txtNumField.required = true;
                     txtNumField.id = field.name;
                     txtNumField.name = field.name;
-                    txtNumField.className = "numField";
+                    txtNumField.label = field.label;
+                    txtNumField.className = "param txtNumField";
                     txtNumField.min = field.min;
                     txtNumField.max = field.max;
                     txtNumField.step = field.step;
@@ -72,6 +74,9 @@ function read_json() {
                     let listField = document.createElement("select");
                     listField.id = field.name;
                     listField.name = field.name;
+                    listField.required = true;
+                    listField.label = field.label;
+                    listField.className = "param listField";
                     tdColCtrl.appendChild(listField);
                     
                     for (i in field.values) {
@@ -80,6 +85,8 @@ function read_json() {
                         optField.textContent = field.values[i].value; 
                         listField.appendChild(optField);
                     }
+
+                    listField.value = "";
                     
                     break;
                     
@@ -91,7 +98,9 @@ function read_json() {
                         rdField.name = field.name;
                         rdField.id = field.values[i].code;
                         rdField.value = field.values[i].code;
-                        //rdField.textContent = field.values[i].value;
+                        rdField.label = field.label;
+                        rdField.className = "param rdField";
+                      //rdField.textContent = field.values[i].value;
                         tdColCtrl.appendChild(rdField);
 
                         let lblField = document.createElement("label");
@@ -102,9 +111,131 @@ function read_json() {
                     }
                     
                     break;
-            }
+            };
  
        });
    });
+
+ }
+
+ function validateFields()
+ {
+     const paramList = document.getElementsByClassName("param");
+     
+     for (i in paramList) {
+         switch (paramList[i].type) {
+            case "text":
+            case "select-one":
+                 if (paramList[i].value == "")
+                 {
+                    alert(paramList[i].label + " is required!");
+                    paramList[i].focus();
+                    return;              
+                 };
+                 
+                 break;
+
+            case "number":
+                 if (paramList[i].value == "")
+                 {
+                    alert(paramList[i].label + " is required!");
+                    paramList[i].focus();
+                    return;
+                 } 
+                 else
+                 {
+                    const valField = parseInt(paramList[i].value);
+                    const minField = parseInt(paramList[i].min);
+                    const maxField = parseInt(paramList[i].max);
+
+                    if (valField < minField || valField > maxField)
+                    {
+                       alert(paramList[i].label + " must be between " + minField + " and " + maxField);
+                       paramList[i].focus();
+                       return;
+                    };
+                 };
+                 
+                 break;
+
+            case "radio":
+                 break;
+         };
+     };
+
+     getPrediction();
+ }
+
+ function getPrediction()
+ {
+   // defining API rest URL
+   const API_URL = "https://fraud-detection-demo-5b6679a4c9d0.herokuapp.com/api/prediction";
+
+   // initializing the label result
+   const lblResult = document.getElementById("lblResult");
+   lblResult.textContent = "PREDICTING...";
+
+   // reading input params
+   const paramList = document.getElementsByClassName("param");
+   let params = {};
+   
+   for (i in paramList) {
+       switch (paramList[i].type) {
+          case "text":
+          case "number":              
+          case "select-one":
+               console.log(paramList[i].name + " : ", paramList[i].value);
+               params[paramList[i].name] = paramList[i].value;
+               break;
+          case "radio":
+               if (paramList[i].checked) {
+                  console.log(paramList[i].name + " : ", paramList[i].value);
+                  params[paramList[i].name] = paramList[i].value;
+               };
+               break;
+       };
+   };
+   
+   // making up the API request
+   let requestHead = new Headers();
+   requestHead.append("Content-Type", "application/json");
+   
+   /*
+   let param = {};
+   param.param01 = "1";
+   param.param02 = "2";
+   param.param03 = "3";
+   param.param04 = "4";
+   param.param05 = "5";
+   */
+   
+   let requestOpt = {}; 
+   requestOpt.method = "POST";
+   requestOpt.body = JSON.stringify(params);
+   requestOpt.headers = requestHead;
+   
+   fetch(`${API_URL}`, requestOpt).then(res => res.json()).catch(error => console.error('Error:', error)).then(response => {
+        const result = response.result;
+        lblResult.textContent = "Prediction: " + result;
+   });
+
+ }
+
+ function reset()
+ {
+     const paramList = document.getElementsByClassName("param");
+     
+     for (i in paramList) {
+         switch (paramList[i].type) {
+            case "text":
+            case "number":
+            case "select-one":
+                 document.getElementById(paramList[i].id).value = "";
+                 break;
+            case "radio":
+                 document.getElementById(paramList[i].id).checked = false;
+                 break;
+         };
+     };
 
  }

@@ -1,4 +1,4 @@
-read_json()
+read_json();
 setTimeout(read_data, 100);
 
 function read_json() {
