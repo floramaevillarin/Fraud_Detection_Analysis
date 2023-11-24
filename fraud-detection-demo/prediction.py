@@ -104,8 +104,7 @@ def homologate(names_list, fields_dict, data_json):
         homo_name = name
         if 'encoded_name' in fields_dict[name]: 
             homo_name = fields_dict[name]['encoded_name']
-        print(homo_name)
-
+        
         # if element is not sended, set null and continue
         if not name in data_json:
             homo_json[homo_name] = np.nan
@@ -139,8 +138,8 @@ def homologate(names_list, fields_dict, data_json):
         # reached here, nothing more to do, set null
         homo_json[homo_name] = np.nan
         
-    print("data_json => ", data_json)
-    print("homo_json => ", homo_json)
+    print("data_json = ", data_json)
+    print("homo_json = ", homo_json)
 
     # returning the homologated JSON
     return homo_json
@@ -167,9 +166,9 @@ def json_csv_line(names_list, data_json):
     for name in names_list:
         if name in data_json:
             if is_null_or_empty(data_json[name]):
-                values_list.append("")
+                values_list.append(" ")
             else: values_list.append(data_json[name].replace(',',';'))
-        else: values_list.append("")
+        else: values_list.append(" ")
     return ', '.join(values_list)
 
 #=== === === === === ===

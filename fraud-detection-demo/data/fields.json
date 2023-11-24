@@ -39,7 +39,7 @@
     "min": 100,
     "max": 299,
     "encoded_name": "card3_target_encoded",
-    "encoded_list": "list-card3-to-card3_target_encoded"
+    "encoded_list": "list-card3-to-card3_target_encoded.json"
   },
   {
     "name": "card6",
@@ -51,7 +51,7 @@
       { "code": "debit", "value": "Debit Card" }
     ],
     "encoded_name": "card6_target_encoded",
-    "encoded_list": "list-card6-to-card6_target_encoded"
+    "encoded_list": "list-card6-to-card6_target_encoded.json"
   },
   {
     "name": "P_emaildomain",
@@ -59,7 +59,7 @@
     "type": "text",
     "required": false,
     "encoded_name": "P_emaildomain_1_target_encoded",
-    "encoded_list": "list-card6-to-card6_target_encoded"
+    "encoded_list": "list-P_emaildomain-to-P_emaildomain_1_target_encoded.json"
   },
   {
     "name": "R_emaildomain",
@@ -67,7 +67,7 @@
     "type": "text",
     "required": false,
     "encoded_name": "R_emaildomain_1_target_encoded",
-    "encoded_list": "list-card6-to-card6_target_encoded"
+    "encoded_list": "list-R_emaildomain-to-R_emaildomain_1_target_encoded.json"
   },
 
   {
@@ -670,7 +670,7 @@
       { "code": "desktop", "value": "desktop" }
     ],
     "encoded_name": "DeviceType_target_encoded",
-    "encoded_list": "list-DeviceType-to-DeviceType_target_encoded"
+    "encoded_list": "list-DeviceType-to-DeviceType_target_encoded.json"
   },
   {
     "name": "id_01",
