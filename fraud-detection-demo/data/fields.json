@@ -28,7 +28,7 @@
     "required": false,
     "min": 100,
     "max": 999,
-    "encoded_name": "ProductCD_target_encoded",
+    "encoded_name": "card2_target_encoded",
     "encoded_list": "list-card2-to-card2_freq_encoded.json"
   },
   {
