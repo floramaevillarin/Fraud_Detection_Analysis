@@ -6,7 +6,8 @@
     "required": true,
     "min": 0.01,
     "max": 1000000.00,
-    "example_01": 123.45
+    "example_01": 123.45,
+    "example_02": 123.45
   },
   {
     "name": "ProductCD",
@@ -14,12 +15,13 @@
     "type": "list",
     "required": true,
     "values": [
-      { "code": "C", "value": "Product C" },
-      { "code": "H", "value": "Product H" },
-      { "code": "R", "value": "Product R" },
-      { "code": "S", "value": "Product S" }
+      { "code": "C", "value": "C (product)" },
+      { "code": "H", "value": "H (product)" },
+      { "code": "R", "value": "R (product)" },
+      { "code": "S", "value": "S (product)" }
     ],
     "example_01": "H",
+    "example_02": "H",
     "encoded_name": "ProductCD_target_encoded",
     "encoded_list": "list-ProductCD-to-ProductCD_target_encoded.json"
   },
@@ -32,7 +34,8 @@
     "required": false,
     "min": 100,
     "max": 999,
-    "example_01": 321,
+    "example_01": "",
+    "example_02": 321,
     "encoded_name": "card2_target_encoded",
     "encoded_list": "list-card2-to-card2_freq_encoded.json"
   },
@@ -44,6 +47,7 @@
     "min": 100,
     "max": 299,
     "example_01": 100,
+    "example_02": 100,
     "encoded_name": "card3_target_encoded",
     "encoded_list": "list-card3-to-card3_target_encoded.json"
   },
@@ -57,6 +61,7 @@
       { "code": "debit", "value": "Debit Card" }
     ],
     "example_01": "credit",
+    "example_02": "credit",
     "encoded_name": "card6_target_encoded",
     "encoded_list": "list-card6-to-card6_target_encoded.json"
   },
@@ -67,7 +72,8 @@
     "label": "Purchaser Email (format: gmail.com)",
     "type": "text",
     "required": false,
-    "example_01": "yahoo.com",
+    "example_01": "",
+    "example_02": "yahoo.com",
     "encoded_name": "P_emaildomain_1_target_encoded",
     "encoded_list": "list-P_emaildomain-to-P_emaildomain_1_target_encoded.json"
   },
@@ -76,7 +82,8 @@
     "label": "Recipient Email (format: gmail.com)",
     "type": "text",
     "required": false,
-    "example_01": "gmail.com",
+    "example_01": "",
+    "example_02": "gmail.com",
     "encoded_name": "R_emaildomain_1_target_encoded",
     "encoded_list": "list-R_emaildomain-to-R_emaildomain_1_target_encoded.json"
   },
@@ -89,7 +96,8 @@
     "required": true,
     "min": 0,
     "max": 349,
-    "example_01": 100
+    "example_01": "",
+    "example_02": 100
   },
   {
     "name": "C13",
@@ -98,7 +106,8 @@
     "required": true,
     "min": 0,
     "max": 2918,
-    "example_01": 1000
+    "example_01": "",
+    "example_02": 1000
   },
 
 
@@ -109,7 +118,8 @@
     "required": false,
     "min": 0,
     "max": 640,
-    "example_01": 100
+    "example_01": "",
+    "example_02": 100
   },
   {
     "name": "D3",
@@ -118,7 +128,8 @@
     "required": false,
     "min": 0,
     "max": 819,
-    "example_01": 200
+    "example_01": "",
+    "example_02": 200
   },
   {
     "name": "D8",
@@ -127,7 +138,8 @@
     "required": false,
     "min": 0.00,
     "max": 1700.00,
-    "example_01": 300.30
+    "example_01": "",
+    "example_02": 300.30
   },
 
 
@@ -141,7 +153,8 @@
       { "code": "T", "value": "Featured T" },
       { "code": "F", "value": "Featured F" }
     ],
-    "example_01": "T",
+    "example_01": "",
+    "example_02": "T",
     "encoded_name": "M3_target_encoded",
     "encoded_list": "list-M3-to-M3_target_encoded.json"
   },
@@ -156,7 +169,8 @@
       { "code": "M1", "value": "Featured M1" },
       { "code": "M2", "value": "Featured M2" }
     ],
-    "example_01": "M2",
+    "example_01": "",
+    "example_02": "M2",
     "encoded_name": "M4_target_encoded",
     "encoded_list": "list-M4-to-M4_target_encoded.json"
   },
@@ -170,7 +184,8 @@
       { "code": "T", "value": "Featured T" },
       { "code": "F", "value": "Featured F" }
     ],
-    "example_01": "F",
+    "example_01": "",
+    "example_02": "F",
     "encoded_name": "M5_target_encoded",
     "encoded_list": "list-M5-to-M5_target_encoded.json"
   },
@@ -184,7 +199,8 @@
       { "code": "T", "value": "Featured T" },
       { "code": "F", "value": "Featured F" }
     ],
-    "example_01": "F",
+    "example_01": "",
+    "example_02": "F",
     "encoded_name": "M6_target_encoded",
     "encoded_list": "list-M6-to-M6_target_encoded.json"
   },
@@ -197,7 +213,8 @@
     "required": false,
     "min": 0,
     "max": 6,
-    "example_01": 3,
+    "example_01": "",
+    "example_02": 3,
     "values": [
       { "code": "",  "value": "" },
       { "code": "0", "value": "0" },
@@ -216,7 +233,8 @@
     "required": false,
     "min": 0,
     "max": 15,
-    "example_01": 8,
+    "example_01": "",
+    "example_02": 8,
     "values": [
       { "code": "",   "value": "" },
       { "code": "0",  "value": "0" },
@@ -244,7 +262,8 @@
     "required": false,
     "min": 0,
     "max": 9,
-    "example_01": 5,
+    "example_01": "",
+    "example_02": 5,
     "values": [
       { "code": "",   "value": "" },
       { "code": "0",  "value": "0" },
@@ -266,7 +285,8 @@
     "required": false,
     "min": 0,
     "max": 48,
-    "example_01": 24,
+    "example_01": "",
+    "example_02": 24,
     "values": [
       { "code": "",   "value": "" },
       { "code": "0",  "value": "0" },
@@ -327,7 +347,8 @@
     "required": false,
     "min": 0,
     "max": 12,
-    "example_01": 6,
+    "example_01": "",
+    "example_02": 6,
     "values": [
       { "code": "",   "value": "" },
       { "code": "0",  "value": "0" },
@@ -352,7 +373,8 @@
     "required": false,
     "min": 0,
     "max": 6,
-    "example_01": 6,
+    "example_01": "",
+    "example_02": 3,
     "values": [
       { "code": "",   "value": "" },
       { "code": "0",  "value": "0" },
@@ -371,7 +393,8 @@
     "required": false,
     "min": 0,
     "max": 10,
-    "example_01": 10,
+    "example_01": "",
+    "example_02": 5,
     "values": [
       { "code": "",   "value": "" },
       { "code": "0",  "value": "0" },
@@ -394,7 +417,8 @@
     "required": false,
     "min": 0,
     "max": 8,
-    "example_01": 4,
+    "example_01": "",
+    "example_02": 4,
     "values": [
       { "code": "",   "value": "" },
       { "code": "0",  "value": "0" },
@@ -415,7 +439,8 @@
     "required": false,
     "min": 0,
     "max": 7,
-    "example_01": 3,
+    "example_01": "",
+    "example_02": 3,
     "values": [
       { "code": "",   "value": "" },
       { "code": "0",  "value": "0" },
@@ -435,7 +460,8 @@
     "required": false,
     "min": 0,
     "max": 30,
-    "example_01": 15,
+    "example_01": "",
+    "example_02": 15,
     "values": [
       { "code": "",   "value": "" },
       { "code": "0",  "value": "0" },
@@ -478,7 +504,8 @@
     "required": false,
     "min": 0,
     "max": 24,
-    "example_01": 24,
+    "example_01": "",
+    "example_02": 12,
     "values": [
       { "code": "",   "value": "" },
       { "code": "0",  "value": "0" },
@@ -515,7 +542,8 @@
     "required": false,
     "min": 0,
     "max": 3300,
-    "example_01": 2300
+    "example_01": "",
+    "example_02": 2300
   },
   {
     "name": "V171",
@@ -524,7 +552,8 @@
     "required": false,
     "min": 0,
     "max": 61,
-    "example_01": 31,
+    "example_01": "",
+    "example_02": 31,
     "values": [
       { "code": "",   "value": "" },
       { "code": "0",  "value": "0" },
@@ -598,7 +627,8 @@
     "required": false,
     "min": 0,
     "max": 21,
-    "example_01": 11,
+    "example_01": "",
+    "example_02": 11,
     "values": [
       { "code": "",   "value": "" },
       { "code": "0",  "value": "0" },
@@ -632,7 +662,8 @@
     "required": false,
     "min": 0,
     "max": 153600,
-    "example_01": 73600
+    "example_01": "",
+    "example_02": 73600
   },
   {
     "name": "V283",
@@ -641,7 +672,8 @@
     "required": false,
     "min": 0,
     "max": 68,
-    "example_01": 34,
+    "example_01": "",
+    "example_02": 34,
     "values": [
       { "code": "",   "value": "" },
       { "code": "0",  "value": "0" },
@@ -722,7 +754,8 @@
     "required": false,
     "min": 0.00,
     "max": 146000.00,
-    "example_01": 76000.00
+    "example_01": "",
+    "example_02": 76000.00
   },
   {
     "name": "V312",
@@ -731,7 +764,8 @@
     "required": false,
     "min": 0,
     "max": 55200,
-    "example_01": 27600
+    "example_01": "",
+    "example_02": 27600
   },
 
 
@@ -741,6 +775,7 @@
     "type": "list",
     "required": true,
     "example_01": "mobile",
+    "example_02": "mobile",
     "values": [
       { "code": "mobile",  "value": "mobile" },
       { "code": "desktop", "value": "desktop" }
@@ -758,6 +793,7 @@
     "min": 0,
     "max": -100,
     "example_01": -50,
+    "example_02": -50,
     "values": [
       { "code": "0",   "value": "0" },
       { "code": "-1",  "value": "-1" },
@@ -869,7 +905,8 @@
     "required": false,
     "min": -36,
     "max": 25,
-    "example_01": -10,
+    "example_01": "",
+    "example_02": -10,
     "values": [
       { "code": "",    "value": "" },
       { "code": "-36", "value": "-36" },
@@ -943,14 +980,16 @@
     "required": false,
     "min": 100,
     "max": 228,
-    "example_01": 164
+    "example_01": "",
+    "example_02": 164
   },
   {
     "name": "id_30",
     "label": "Identity Information, Operating System",
     "type": "list",
     "required": false,
-    "example_01": "Android",
+    "example_01": "",
+    "example_02": "Android",
     "values": [
       { "code": "",                 "value": "" },
       { "code": "Android",          "value": "Android" },
@@ -1030,7 +1069,8 @@
     "label": "Identity Information, Web Browser",
     "type": "list",
     "required": false,
-    "example_01": "Microsoft/Windows",
+    "example_01": "",
+    "example_02": "Microsoft/Windows",
     "values": [
       { "code": "",                       "value": "" },
       {"code": "Generic/Android",         "value": "Generic/Android"},

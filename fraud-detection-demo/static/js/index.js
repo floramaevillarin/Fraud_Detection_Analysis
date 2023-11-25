@@ -21,9 +21,15 @@ function read_json() {
         let trHead = document.createElement("tr");
         tHead.appendChild(trHead);
         
+        let thCol = document.createElement("th");
+        thCol.textContent = "RESULTS";
+        thCol.style = "background-color:lightgray; width:200px;";
+        trHead.appendChild(thCol);
+
         fields.forEach(field => {
            let thCol = document.createElement("th");
            thCol.textContent = field.label;
+           thCol.style = "background-color:lightgray; width:200px;";
            trHead.appendChild(thCol);
         });
    });

@@ -1,0 +1,4 @@
+
+ERROR: If using all scalar values; you must pass an index, 123.45, H, 321, 100, credit, yahoo.com, gmail.com, 100, 1000, 100, 200, 300.3, T, M2, F, F, 6, 15, 9, 48, 12, 6, 10, 8, 7, 30, 24, 3300, 61, 21, 153600, 68, 146000.0, 55200, mobile, -100, 25, 228, Android, Microsoft/Windows
+ERROR: If using all scalar values; you must pass an index, 123.45, H, -, 100, credit, -, -, 100, 1000, -, -, -, -, -, -, -, -, -, -, -, -, -, -, -, -, -, -, -, -, -, -, -, -, -, mobile, -50, -, -, -, -
+ERROR: If using all scalar values; you must pass an index, 123.45, H, -, 100, credit, -, -, 100, 1000, -, -, -, -, -, -, -, -, -, -, -, -, -, -, -, -, -, -, -, -, -, -, -, -, -, mobile, -100, -, -, -, -

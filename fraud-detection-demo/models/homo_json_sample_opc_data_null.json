@@ -1,0 +1,93 @@
+{
+  "TransactionAmt": 123.45,       // TransactionAMT: transaction payment amount in USD.
+  "ProductCD": "H",               // ProductCD: product code, the product for each transaction.
+
+  "card2": null,                  // card1 - card6: payment card information, such as card type, card category, issue bank, country, etc.
+  "card3": 100,
+  "card6": "credit",
+
+  "P_emaildomain": null,          // P_ and (R__) emaildomain: purchaser and recipient email domain.
+  "R_emaildomain": null,
+
+  "C5": 100,                      // C1-C14: counting, such as how many addresses are found to be associated with the payment card, etc. The actual meaning is masked.
+  "C13": 1000,
+
+  "D2": null,                      // D1-D15: timedelta, such as days between previous transaction, etc.
+  "D3": null,
+  "D8": null,
+
+  "M3": null,                      // M1-M9: match, such as names on card and address, etc.
+  "M4": null,
+  "M5": null,
+  "M6": null,
+
+  "V13": null,                    // Vxxx: Vesta engineered rich features, including ranking, counting, and other entity relations.
+  "V20": null,
+  "V30": null,
+  "V44": null,
+  "V47": null,
+  "V54": null,
+  "V62": null,
+  "V67": null,
+  "V82": null,
+  "V86": null,
+  "V156": null,
+  "V162": null,
+  "V171": null,
+  "V198": null,
+  "V264": null,
+  "V283": null,
+  "V307": null,
+  "V312": null,
+
+  "DeviceType": "mobile",         // Identity Information: Device type.
+
+  "id_01": -100,                  // Identity Information: Collected by Vesta's fraud protection system and digital security partners. Information masked for privacy protection.
+  "id_09": null,
+  "id_17": null,
+  "id_30": null,
+  "id_31": null
+}
+
+{
+  "TransactionAmt": 123.45,
+  "ProductCD_target_encoded": 0.04585122593156947,
+  "card2_target_encoded": nan,
+  "card3_target_encoded": 0.04666666666666667,
+  "card6_target_encoded": 0.06681659517565948,
+  "P_emaildomain_1_target_encoded": nan,
+  "R_emaildomain_1_target_encoded": nan,
+  "C5": 100.0,
+  "C13": 1000.0,
+  "D2": nan,
+  "D3": nan,
+  "D8": nan,
+  "M3_target_encoded": nan,
+  "M4_target_encoded": nan,
+  "M5_target_encoded": nan,
+  "M6_target_encoded": nan,
+  "V13": nan,
+  "V20": nan,
+  "V30": nan,
+  "V44": nan,
+  "V47": nan,
+  "V54": nan,
+  "V62": nan,
+  "V67": nan,
+  "V82": nan,
+  "V86": nan,
+  "V156": nan,
+  "V162": nan,
+  "V171": nan,
+  "V198": nan,
+  "V264": nan,
+  "V283": nan,
+  "V307": nan,
+  "V312": nan,
+  "DeviceType_target_encoded": 0.09888678080782683,
+  "id_01": -100.0,
+  "id_09": nan,
+  "id_17": nan,
+  "id_30_target_encoded": nan,
+  "id_31_target_encoded": nan
+}

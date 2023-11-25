@@ -1,7 +1,7 @@
 read_json();
 
 function read_json() {
-   const bgReqColor = "#FCFDE8";
+   const bgReqColor = "rgb(231 233 184)";
 
    fetch(window.location.protocol + "//" + window.location.host + '/data/fields.json').then(res => res.json()).then(fields => {
          
@@ -23,10 +23,12 @@ function read_json() {
 
          let thColFeat = document.createElement("th");
          thColFeat.textContent = "Feature";
+         thColFeat.style = "background-color:lightgray;";
          trHead.appendChild(thColFeat);
          
          let thColValue = document.createElement("th");
          thColValue.textContent = "Value";
+         thColValue.style = "background-color:lightgray;";
          trHead.appendChild(thColValue);
          
          //body
@@ -53,11 +55,12 @@ function read_json() {
                     textField.name = field.name;
                     textField.label = field.label;
                     textField.className = "param textField";
+                    textField.style.width = "200px";
                     
                     if (Boolean(field.required))
                     {
                        textField.required = true;
-                       textField.style = "background-color:" + bgReqColor + ";";  
+                       textField.style = "background-color:" + bgReqColor + "; width:200px;";  
                     };
                     
                     tdColCtrl.appendChild(textField);
@@ -73,11 +76,12 @@ function read_json() {
                     txtNumField.max = field.max;
                     txtNumField.step = field.step;
                     txtNumField.className = "param txtNumField";
+                    txtNumField.style.width = "200px";
 
                     if (Boolean(field.required))
                     {
                        txtNumField.required = true;
-                       txtNumField.style = "background-color:" + bgReqColor + ";";
+                       txtNumField.style = "background-color:" + bgReqColor + "; width:200px;";
                     };
 
                     tdColCtrl.appendChild(txtNumField);
@@ -93,11 +97,12 @@ function read_json() {
                     txtDecField.max = field.max;
                     txtDecField.step = field.step;
                     txtDecField.className = "param txtDecField";
+                    txtDecField.style.width = "200px";
 
                     if (Boolean(field.required))
                     {
                        txtDecField.required = true;
-                       txtDecField.style = "background-color:" + bgReqColor + ";";
+                       txtDecField.style = "background-color:" + bgReqColor + "; width:200px;";
                     };
 
                     tdColCtrl.appendChild(txtDecField);
@@ -109,11 +114,12 @@ function read_json() {
                     listField.name = field.name;
                     listField.label = field.label;
                     listField.className = "param listField";
+                    listField.style.width = "200px";
                     
                     if (Boolean(field.required))
                     {
                          listField.required = true;
-                         listField.style = "background-color:" + bgReqColor + ";";
+                         listField.style = "background-color:" + bgReqColor + "; width:200px;";
                     }
                     
                     tdColCtrl.appendChild(listField);

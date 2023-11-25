@@ -13,6 +13,8 @@ RESULT_NOT_FRAUD = "NOT-FRAUD"
 RESULT_UNKNOWN   = "UNKNOWN"
 RESULT_ERROR     = "ERROR"
 
+DATA_EMPTY_VALUE = "-"
+
 def post(request):
     try:
         # getting the JSON data from the request
@@ -151,7 +153,7 @@ def prediction(homo_json):
     model_filename = 'models/model_xgbv3_joblib.pkl'
     model_loaded = joblib.load(model_filename)
 
-    #print(homo_json)
+    print(homo_json)
     print("dataframe")
     print("dataframe", pd.DataFrame(homo_json))
     y_pred = model_loaded.predict(pd.DataFrame(homo_json), index=[0])
@@ -174,9 +176,9 @@ def json_csv_line(names_list, data_json):
     for name in names_list:
         if name in data_json:
             if is_null_or_empty(data_json[name]):
-                values_list.append(" ")
+                values_list.append(DATA_EMPTY_VALUE)
             else: values_list.append(str(data_json[name]).replace(',',';'))
-        else: values_list.append(" ")
+        else: values_list.append(DATA_EMPTY_VALUE)
     return ', '.join(values_list)
 
 #=== === === === === ===
