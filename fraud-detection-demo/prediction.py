@@ -18,8 +18,11 @@ def post(request):
         # getting the JSON data from the request
         data_json = request.json
 
+        # getting field features
+        names_list, fields_dict = load_fields()
+
         # validating the presence of parameters
-        names_list, fields_dict = validate(data_json)
+        validate(names_list, fields_dict, data_json)
 
         # homologating values
         homo_json = homologate(names_list, fields_dict, data_json)
@@ -73,9 +76,7 @@ def is_null_or_empty(obj):
     else:
         return False
 
-def validate(data_json):
-    names_list, fields_dict = load_fields()
-
+def validate(names_list, fields_dict, data_json):
     params_unknown_list = [ ]
     for key, value in data_json.items():
         if not key in names_list:
@@ -138,18 +139,24 @@ def homologate(names_list, fields_dict, data_json):
         # reached here, nothing more to do, set null
         homo_json[homo_name] = np.nan
         
-    print("data_json = ", data_json)
-    print("homo_json = ", homo_json)
+    #print("data_json = ", data_json)
+    #print("homo_json = ", homo_json)
 
     # returning the homologated JSON
     return homo_json
 
 #=== === === === === ===
 
-def prediction(data_json):
+def prediction(homo_json):
     model_filename = 'models/model_xgbv3_joblib.pkl'
     model_loaded = joblib.load(model_filename)
-    y_pred = model_loaded.predict(pd.DataFrame(data_json))
+
+    #print(homo_json)
+    print("dataframe")
+    print("dataframe", pd.DataFrame(homo_json))
+    y_pred = model_loaded.predict(pd.DataFrame(homo_json), index=[0])
+    print(333)
+
     result = str(y_pred[0])
     return RESULT_FRAUD if result == "1" else RESULT_NOT_FRAUD if result == "0" else RESULT_UNKNOWN
 
@@ -158,7 +165,8 @@ def prediction(data_json):
 def save_data(names_list, data_json, result):
     data_filename = "data/data.csv"
     with open(data_filename, 'a') as file:
-        new_line = json_csv_line(names_list, data_json) + ", " + result
+        result_normalized = '' if is_null_or_empty(result) else result.replace(',',';')
+        new_line = result_normalized + ', ' + json_csv_line(names_list, data_json) 
         file.write('\n'+new_line)
 
 def json_csv_line(names_list, data_json):
@@ -167,7 +175,7 @@ def json_csv_line(names_list, data_json):
         if name in data_json:
             if is_null_or_empty(data_json[name]):
                 values_list.append(" ")
-            else: values_list.append(data_json[name].replace(',',';'))
+            else: values_list.append(str(data_json[name]).replace(',',';'))
         else: values_list.append(" ")
     return ', '.join(values_list)
 

@@ -5,7 +5,8 @@
     "type": "decimal",
     "required": true,
     "min": 0.01,
-    "max": 1000000.00
+    "max": 1000000.00,
+    "example_01": 123.45
   },
   {
     "name": "ProductCD",
@@ -18,9 +19,12 @@
       { "code": "R", "value": "Product R" },
       { "code": "S", "value": "Product S" }
     ],
+    "example_01": "H",
     "encoded_name": "ProductCD_target_encoded",
     "encoded_list": "list-ProductCD-to-ProductCD_target_encoded.json"
   },
+
+
   {
     "name": "card2",
     "label": "Payment Card Information, Feature 2 (values from 100 to 600)",
@@ -28,6 +32,7 @@
     "required": false,
     "min": 100,
     "max": 999,
+    "example_01": 321,
     "encoded_name": "card2_target_encoded",
     "encoded_list": "list-card2-to-card2_freq_encoded.json"
   },
@@ -38,6 +43,7 @@
     "required": true,
     "min": 100,
     "max": 299,
+    "example_01": 100,
     "encoded_name": "card3_target_encoded",
     "encoded_list": "list-card3-to-card3_target_encoded.json"
   },
@@ -50,14 +56,18 @@
       { "code": "credit", "value": "Credit Card" },
       { "code": "debit", "value": "Debit Card" }
     ],
+    "example_01": "credit",
     "encoded_name": "card6_target_encoded",
     "encoded_list": "list-card6-to-card6_target_encoded.json"
   },
+
+
   {
     "name": "P_emaildomain",
     "label": "Purchaser Email (format: gmail.com)",
     "type": "text",
     "required": false,
+    "example_01": "yahoo.com",
     "encoded_name": "P_emaildomain_1_target_encoded",
     "encoded_list": "list-P_emaildomain-to-P_emaildomain_1_target_encoded.json"
   },
@@ -66,9 +76,11 @@
     "label": "Recipient Email (format: gmail.com)",
     "type": "text",
     "required": false,
+    "example_01": "gmail.com",
     "encoded_name": "R_emaildomain_1_target_encoded",
     "encoded_list": "list-R_emaildomain-to-R_emaildomain_1_target_encoded.json"
   },
+
 
   {
     "name": "C5",
@@ -76,7 +88,8 @@
     "type": "number",
     "required": true,
     "min": 0,
-    "max": 349
+    "max": 349,
+    "example_01": 100
   },
   {
     "name": "C13",
@@ -84,15 +97,19 @@
     "type": "number",
     "required": true,
     "min": 0,
-    "max": 2918
+    "max": 2918,
+    "example_01": 1000
   },
+
+
   {
     "name": "D2",
     "label": "Timedelta Feature 1 (values from 0 to 640)",
     "type": "number",
     "required": false,
     "min": 0,
-    "max": 640
+    "max": 640,
+    "example_01": 100
   },
   {
     "name": "D3",
@@ -100,16 +117,20 @@
     "type": "number",
     "required": false,
     "min": 0,
-    "max": 819
+    "max": 819,
+    "example_01": 200
   },
   {
     "name": "D8",
     "label": "Timedelta Feature 8 (values from 0 to 1700 con decimales)",
-    "type": "number",
+    "type": "decimal",
     "required": false,
-    "min": 0,
-    "max": 1700
+    "min": 0.00,
+    "max": 1700.00,
+    "example_01": 300.30
   },
+
+
   {
     "name": "M3",
     "label": "Match Feature 3",
@@ -120,6 +141,7 @@
       { "code": "T", "value": "Featured T" },
       { "code": "F", "value": "Featured F" }
     ],
+    "example_01": "T",
     "encoded_name": "M3_target_encoded",
     "encoded_list": "list-M3-to-M3_target_encoded.json"
   },
@@ -134,6 +156,7 @@
       { "code": "M1", "value": "Featured M1" },
       { "code": "M2", "value": "Featured M2" }
     ],
+    "example_01": "M2",
     "encoded_name": "M4_target_encoded",
     "encoded_list": "list-M4-to-M4_target_encoded.json"
   },
@@ -147,6 +170,7 @@
       { "code": "T", "value": "Featured T" },
       { "code": "F", "value": "Featured F" }
     ],
+    "example_01": "F",
     "encoded_name": "M5_target_encoded",
     "encoded_list": "list-M5-to-M5_target_encoded.json"
   },
@@ -160,14 +184,20 @@
       { "code": "T", "value": "Featured T" },
       { "code": "F", "value": "Featured F" }
     ],
+    "example_01": "F",
     "encoded_name": "M6_target_encoded",
     "encoded_list": "list-M6-to-M6_target_encoded.json"
   },
+
+
   {
     "name": "V13",
     "label": "Vesta Feature 13",
     "type": "list",
     "required": false,
+    "min": 0,
+    "max": 6,
+    "example_01": 3,
     "values": [
       { "code": "",  "value": "" },
       { "code": "0", "value": "0" },
@@ -184,6 +214,9 @@
     "label": "Vesta Feature 20",
     "type": "list",
     "required": false,
+    "min": 0,
+    "max": 15,
+    "example_01": 8,
     "values": [
       { "code": "",   "value": "" },
       { "code": "0",  "value": "0" },
@@ -209,6 +242,9 @@
     "label": "Vesta Feature 30",
     "type": "list",
     "required": false,
+    "min": 0,
+    "max": 9,
+    "example_01": 5,
     "values": [
       { "code": "",   "value": "" },
       { "code": "0",  "value": "0" },
@@ -228,6 +264,9 @@
     "label": "Vesta Feature 44",
     "type": "list",
     "required": false,
+    "min": 0,
+    "max": 48,
+    "example_01": 24,
     "values": [
       { "code": "",   "value": "" },
       { "code": "0",  "value": "0" },
@@ -286,6 +325,9 @@
     "label": "Vesta Feature 47",
     "type": "list",
     "required": false,
+    "min": 0,
+    "max": 12,
+    "example_01": 6,
     "values": [
       { "code": "",   "value": "" },
       { "code": "0",  "value": "0" },
@@ -308,6 +350,9 @@
     "label": "Vesta Feature 54",
     "type": "list",
     "required": false,
+    "min": 0,
+    "max": 6,
+    "example_01": 6,
     "values": [
       { "code": "",   "value": "" },
       { "code": "0",  "value": "0" },
@@ -324,6 +369,9 @@
     "label": "Vesta Feature 62",
     "type": "list",
     "required": false,
+    "min": 0,
+    "max": 10,
+    "example_01": 10,
     "values": [
       { "code": "",   "value": "" },
       { "code": "0",  "value": "0" },
@@ -344,6 +392,9 @@
     "label": "Vesta Feature 67",
     "type": "list",
     "required": false,
+    "min": 0,
+    "max": 8,
+    "example_01": 4,
     "values": [
       { "code": "",   "value": "" },
       { "code": "0",  "value": "0" },
@@ -362,6 +413,9 @@
     "label": "Vesta Feature 82",
     "type": "list",
     "required": false,
+    "min": 0,
+    "max": 7,
+    "example_01": 3,
     "values": [
       { "code": "",   "value": "" },
       { "code": "0",  "value": "0" },
@@ -379,6 +433,9 @@
     "label": "Vesta Feature 86",
     "type": "list",
     "required": false,
+    "min": 0,
+    "max": 30,
+    "example_01": 15,
     "values": [
       { "code": "",   "value": "" },
       { "code": "0",  "value": "0" },
@@ -419,6 +476,9 @@
     "label": "Vesta Feature 156",
     "type": "list",
     "required": false,
+    "min": 0,
+    "max": 24,
+    "example_01": 24,
     "values": [
       { "code": "",   "value": "" },
       { "code": "0",  "value": "0" },
@@ -454,13 +514,17 @@
     "type": "number",
     "required": false,
     "min": 0,
-    "max": 3300
+    "max": 3300,
+    "example_01": 2300
   },
   {
     "name": "V171",
     "label": "Vesta Feature 171",
     "type": "list",
     "required": false,
+    "min": 0,
+    "max": 61,
+    "example_01": 31,
     "values": [
       { "code": "",   "value": "" },
       { "code": "0",  "value": "0" },
@@ -532,6 +596,9 @@
     "label": "Vesta Feature 198",
     "type": "list",
     "required": false,
+    "min": 0,
+    "max": 21,
+    "example_01": 11,
     "values": [
       { "code": "",   "value": "" },
       { "code": "0",  "value": "0" },
@@ -564,13 +631,17 @@
     "type": "number",
     "required": false,
     "min": 0,
-    "max": 153600
+    "max": 153600,
+    "example_01": 73600
   },
   {
     "name": "V283",
     "label": "Vesta Feature 283",
     "type": "list",
     "required": false,
+    "min": 0,
+    "max": 68,
+    "example_01": 34,
     "values": [
       { "code": "",   "value": "" },
       { "code": "0",  "value": "0" },
@@ -649,8 +720,9 @@
     "label": "Vesta Feature 307 (values from 0.00 to 146000.00)",
     "type": "decimal",
     "required": false,
-    "min": 0,
-    "max": 146000.00
+    "min": 0.00,
+    "max": 146000.00,
+    "example_01": 76000.00
   },
   {
     "name": "V312",
@@ -658,13 +730,17 @@
     "type": "number",
     "required": false,
     "min": 0,
-    "max": 55200
+    "max": 55200,
+    "example_01": 27600
   },
+
+
   {
     "name": "DeviceType",
     "label": "Identity Information, Device type",
     "type": "list",
     "required": true,
+    "example_01": "mobile",
     "values": [
       { "code": "mobile",  "value": "mobile" },
       { "code": "desktop", "value": "desktop" }
@@ -672,11 +748,16 @@
     "encoded_name": "DeviceType_target_encoded",
     "encoded_list": "list-DeviceType-to-DeviceType_target_encoded.json"
   },
+
+
   {
     "name": "id_01",
     "label": "Identity Information, Feature 01",
     "type": "list",
     "required": true,
+    "min": 0,
+    "max": -100,
+    "example_01": -50,
     "values": [
       { "code": "0",   "value": "0" },
       { "code": "-1",  "value": "-1" },
@@ -786,6 +867,9 @@
     "label": "Identity Information, Feature 09",
     "type": "list",
     "required": false,
+    "min": -36,
+    "max": 25,
+    "example_01": -10,
     "values": [
       { "code": "",    "value": "" },
       { "code": "-36", "value": "-36" },
@@ -858,13 +942,15 @@
     "type": "number",
     "required": false,
     "min": 100,
-    "max": 228
+    "max": 228,
+    "example_01": 164
   },
   {
     "name": "id_30",
     "label": "Identity Information, Operating System",
     "type": "list",
     "required": false,
+    "example_01": "Android",
     "values": [
       { "code": "",                 "value": "" },
       { "code": "Android",          "value": "Android" },
@@ -944,6 +1030,7 @@
     "label": "Identity Information, Web Browser",
     "type": "list",
     "required": false,
+    "example_01": "Microsoft/Windows",
     "values": [
       { "code": "",                       "value": "" },
       {"code": "Generic/Android",         "value": "Generic/Android"},
