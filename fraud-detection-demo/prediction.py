@@ -84,7 +84,7 @@ def validate(names_list, fields_dict, data_json):
         if not key in names_list:
             params_unknown_list.append(key)
     if len(params_unknown_list) > 0:
-        raise Exception("Parameters unknown: "+", ".join(params_unknown_list))
+        raise Exception("Unknown Parameters: "+", ".join(params_unknown_list))
 
     params_missed_list = [ ]
     for name in names_list:
@@ -94,7 +94,7 @@ def validate(names_list, fields_dict, data_json):
             elif is_null_or_empty(data_json[name]):
                params_missed_list.append(name)
     if len(params_missed_list) > 0:
-        raise Exception("Parameters required: "+", ".join(params_missed_list))
+        raise Exception("Required Parameters: "+", ".join(params_missed_list))
     
     return names_list, fields_dict
 

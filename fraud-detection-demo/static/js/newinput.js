@@ -297,7 +297,7 @@ function read_json() {
    
    fetch(`${API_URL}`, requestOpt).then(res => res.json()).catch(error => console.error('Error:', error)).then(response => {
         const result = response.result;
-        lblResult.textContent = "Prediction: " + result;
+        lblResult.textContent = "PREDICTION: " + result;
    });
 
  }

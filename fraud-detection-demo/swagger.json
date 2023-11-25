@@ -108,8 +108,8 @@
                   "example": 200
                 },
                 "D8": {
-                  "description": "Timedelta Feature 8 (values from 0 to 1700 con decimales)",
-                  "type": "integer",
+                  "description": "Timedelta Feature 8 (values from 0.00 to 1700.00 con decimales)",
+                  "type": "number",
                   "nullable": true,
                   "example": 300.30
                 },
@@ -285,6 +285,7 @@
                   "nullable": true,
                   "example": "Microsoft/Windows"
                 }
+
               },
 
               "required": [
@@ -309,7 +310,8 @@
               "properties": {
                 "result": {
                   "description": "Fraud Detection Result: FRAUD, NOT-FRAUD, UNKNOWN, ERROR.",
-                  "type": "string"
+                  "type": "string",
+                  "example": "NOT-FRAUD"
                 }
               }
             }
