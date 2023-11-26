@@ -29,19 +29,21 @@
 
   {
     "name": "card2",
-    "label": "Payment Card Information, Feature 2 (values from 100 to 600)",
+    "label": "Payment Card Information, Feature 2",
+    "labelPlus": "(values from 100 to 600)",
     "type": "number",
     "required": false,
     "min": 100,
     "max": 999,
     "example_01": "",
     "example_02": 321,
-    "encoded_name": "card2_target_encoded",
+    "encoded_name": "card2_freq_encoded",
     "encoded_list": "list-card2-to-card2_freq_encoded.json"
   },
   {
     "name": "card3",
-    "label": "Payment Card Information, Feature 3 (values from 100 to 299)",
+    "label": "Payment Card Information, Feature 3",
+    "labelPlus": "(values from 100 to 299)",
     "type": "number",
     "required": true,
     "min": 100,
@@ -69,7 +71,8 @@
 
   {
     "name": "P_emaildomain",
-    "label": "Purchaser Email (format: gmail.com)",
+    "label": "Purchaser Email",
+    "labelPlus": "(format: gmail.com)",
     "type": "text",
     "required": false,
     "example_01": "",
@@ -79,7 +82,8 @@
   },
   {
     "name": "R_emaildomain",
-    "label": "Recipient Email (format: gmail.com)",
+    "label": "Recipient Email",
+    "labelPlus": "(format: gmail.com)",
     "type": "text",
     "required": false,
     "example_01": "",
@@ -91,7 +95,8 @@
 
   {
     "name": "C5",
-    "label": "Counting Feature 1 (values from 0 to 349)",
+    "label": "Counting Feature 1",
+    "labelPlus": "(values from 0 to 349)",
     "type": "number",
     "required": true,
     "min": 0,
@@ -101,7 +106,8 @@
   },
   {
     "name": "C13",
-    "label": "Counting Feature 13 (values from 0 to 2918)",
+    "label": "Counting Feature 13",
+    "labelPlus": "(values from 0 to 2918)",
     "type": "number",
     "required": true,
     "min": 0,
@@ -113,7 +119,8 @@
 
   {
     "name": "D2",
-    "label": "Timedelta Feature 1 (values from 0 to 640)",
+    "label": "Timedelta Feature 1",
+    "labelPlus": "(values from 0 to 640)",
     "type": "number",
     "required": false,
     "min": 0,
@@ -123,7 +130,8 @@
   },
   {
     "name": "D3",
-    "label": "Timedelta Feature 3 (values from 0 to 819)",
+    "label": "Timedelta Feature 3",
+    "labelPlus": "(values from 0 to 819)",
     "type": "number",
     "required": false,
     "min": 0,
@@ -133,7 +141,8 @@
   },
   {
     "name": "D8",
-    "label": "Timedelta Feature 8 (values from 0 to 1700 con decimales)",
+    "label": "Timedelta Feature 8",
+    "labelPlus": "(values from 0.00 to 1700.00)",
     "type": "decimal",
     "required": false,
     "min": 0.00,
@@ -537,7 +546,8 @@
   },
   {
     "name": "V162",
-    "label": "Vesta Feature 162 (values from 0 to 3300)",
+    "label": "Vesta Feature 162",
+    "labelPlus": "(values from 0 to 3300)",
     "type": "number",
     "required": false,
     "min": 0,
@@ -657,7 +667,8 @@
   },
   {
     "name": "V264",
-    "label": "Vesta Feature 264 (values from 0 to 153600)",
+    "label": "Vesta Feature 264",
+    "labelPlus": "(values from 0 to 153600)",
     "type": "number",
     "required": false,
     "min": 0,
@@ -749,7 +760,8 @@
   },
   {
     "name": "V307",
-    "label": "Vesta Feature 307 (values from 0.00 to 146000.00)",
+    "label": "Vesta Feature 307",
+    "labelPlus": "(values from 0.00 to 146000.00)",
     "type": "decimal",
     "required": false,
     "min": 0.00,
@@ -759,7 +771,8 @@
   },
   {
     "name": "V312",
-    "label": "Vesta Feature 312 (values from 0 to 55200)",
+    "label": "Vesta Feature 312",
+    "labelPlus": "(values from 0 to 55200)",
     "type": "number",
     "required": false,
     "min": 0,
@@ -975,13 +988,16 @@
   },
   {
     "name": "id_17",
-    "label": "Identity Information, Feature 17 (values from 100 to 228)",
+    "label": "Identity Information, Feature 17",
+    "labelPlus": "(values from 100 to 228)",
     "type": "number",
     "required": false,
     "min": 100,
     "max": 228,
     "example_01": "",
-    "example_02": 164
+    "example_02": 164,
+    "encoded_name": "id_17_target_encoded",
+    "encoded_list": "list-id_17-to-id_17_target_encoded.json"
   },
   {
     "name": "id_30",

@@ -1,17 +1,9 @@
-## prerequisite
-# pip install Flask
-# pip install flask_cors
-# pip install flask_restful
-# pip install flask_swagger_ui
-
-import prediction
-from flask import render_template, Response
-
-from flask import Flask, request, send_from_directory, jsonify
-from flask_cors import CORS
-#from flask_restful import Resource, Api
-from flask_swagger_ui import get_swaggerui_blueprint
 import json
+import prediction
+
+from flask import Flask, request, Response, render_template, jsonify
+from flask_cors import CORS
+from flask_swagger_ui import get_swaggerui_blueprint
 
 app = Flask(__name__)
 CORS(app)
@@ -29,7 +21,6 @@ def error_handler_exception(error):
 
 #=== === === === === === === 
 
-#print (request.base_url)
 SWAGGER_URL  = '/swagger'
 SWAGGER_JSON = 'swagger.json'
 SWAGGER_JSON_URL = '/'+SWAGGER_JSON
@@ -49,10 +40,11 @@ def swagger():
 
 @app.route('/')
 def root():
-    #try:
-    return render_template('root.html')
-    #except Exception as e:
-    #    return render_template('root.html')
+    return index()
+
+@app.route('/index.html')
+def index():
+    return render_template('index.html')
 
 #=== === === === === === ===
 

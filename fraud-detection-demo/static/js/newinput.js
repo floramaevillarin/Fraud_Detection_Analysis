@@ -249,11 +249,11 @@ function read_json() {
  function getPrediction()
  {
    // defining API rest URL
-   const API_URL = "https://fraud-detection-demo-5b6679a4c9d0.herokuapp.com/api/prediction";
+   const API_URL = window.location.protocol + "//" + window.location.host + "/api/prediction";
 
    // initializing the label result
    const lblResult = document.getElementById("lblResult");
-   lblResult.textContent = "PREDICTING...";
+   lblResult.innerHTML   = "<br><b>PREDICTING...</b>";
 
    // reading input params
    const paramList = document.getElementsByClassName("param");
@@ -265,12 +265,12 @@ function read_json() {
           case "number":
           case "decimal":
           case "select-one":
-               console.log(paramList[i].name + " : ", paramList[i].value);
+               //console.log(paramList[i].name + " : ", paramList[i].value);
                params[paramList[i].name] = paramList[i].value;
                break;
           case "radio":
                if (paramList[i].checked) {
-                  console.log(paramList[i].name + " : ", paramList[i].value);
+                  //console.log(paramList[i].name + " : ", paramList[i].value);
                   params[paramList[i].name] = paramList[i].value;
                };
                break;
@@ -297,7 +297,7 @@ function read_json() {
    
    fetch(`${API_URL}`, requestOpt).then(res => res.json()).catch(error => console.error('Error:', error)).then(response => {
         const result = response.result;
-        lblResult.textContent = "PREDICTION: " + result;
+        lblResult.innerHTML  = "<br><b>"+result+"</b>";
    });
 
  }
@@ -305,7 +305,7 @@ function read_json() {
  function reset()
  {
      const lblResult = document.getElementById("lblResult");
-     lblResult.textContent = "";
+     lblResult.textContent = "<br><b>...</b>";
      
      const paramList = document.getElementsByClassName("param");
      

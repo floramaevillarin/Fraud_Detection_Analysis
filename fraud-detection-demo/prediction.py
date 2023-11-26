@@ -19,13 +19,13 @@ def post(request):
     try:
         # getting the JSON data from the request
         data_json = request.json
-
+        
         # getting field features
         names_list, fields_dict = load_fields()
-
+        
         # validating the presence of parameters
         validate(names_list, fields_dict, data_json)
-
+        
         # homologating values
         homo_json = homologate(names_list, fields_dict, data_json)
         
@@ -34,7 +34,7 @@ def post(request):
         
         # saging the data
         save_data(names_list, data_json, result)
-
+        
         response = {RESULT: result}
         return jsonify(response)
 
@@ -92,7 +92,6 @@ def validate(names_list, fields_dict, data_json):
         if name in data_json and not is_null_or_empty(data_json[name]) \
            and fields_dict.get(name)["type"] in ("number", "decimal"):
                 if "min" in fields_dict.get(name):
-                    print(name, data_json[name])
                     if float(data_json[name]) < int(fields_dict.get(name)["min"]):
                         params_nums_out_range_list.append(name)
                 if "max" in fields_dict.get(name):
@@ -169,11 +168,11 @@ def prediction(homo_json):
     model_filename = 'models/model_xgbv3_joblib.pkl'
     model_loaded = joblib.load(model_filename)
 
-    print(homo_json)
-    print("dataframe")
-    print("dataframe", pd.DataFrame(homo_json))
-    y_pred = model_loaded.predict(pd.DataFrame(homo_json), index=[0])
-    print(333)
+    homo_json["TransactionID"] = 0
+    dataframe_X = pd.DataFrame(homo_json, index=[0])
+    dataframe_X.set_index("TransactionID", inplace=True)
+    dataframe_X = dataframe_X[model_loaded.get_booster().feature_names]
+    y_pred = model_loaded.predict(dataframe_X)   
 
     result = str(y_pred[0])
     return RESULT_FRAUD if result == "1" else RESULT_NOT_FRAUD if result == "0" else RESULT_UNKNOWN
