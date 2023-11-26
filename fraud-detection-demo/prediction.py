@@ -47,6 +47,7 @@ def post(request):
         return jsonify(response), 400  # 400 Bad Request
 
 #=== === === === === ===
+#=== === === === === ===
 
 def get_field_by_name(fields_list, name):
     for field in fields_list:
@@ -68,16 +69,6 @@ def load_fields():
 
 #=== === === === === ===
 
-def is_null_or_empty(obj):
-    if obj is None:
-        return True
-    elif isinstance(obj, str) and not obj.strip():
-        return True
-    elif isinstance(obj, (list, tuple, dict, set)) and not obj:
-        return True
-    else:
-        return False
-
 def validate(names_list, fields_dict, data_json):
     params_unknown_list = [ ]
     for key, value in data_json.items():
@@ -85,7 +76,7 @@ def validate(names_list, fields_dict, data_json):
             params_unknown_list.append(key)
     if len(params_unknown_list) > 0:
         raise Exception("Unknown Parameters: "+", ".join(params_unknown_list))
-
+    
     params_missed_list = [ ]
     for name in names_list:
         if fields_dict.get(name)["required"] in (True, "true"):
@@ -96,7 +87,32 @@ def validate(names_list, fields_dict, data_json):
     if len(params_missed_list) > 0:
         raise Exception("Required Parameters: "+", ".join(params_missed_list))
     
+    params_nums_out_range_list = [ ]
+    for name in names_list:
+        if name in data_json and not is_null_or_empty(data_json[name]) \
+           and fields_dict.get(name)["type"] in ("number", "decimal"):
+                if "min" in fields_dict.get(name):
+                    print(name, data_json[name])
+                    if float(data_json[name]) < int(fields_dict.get(name)["min"]):
+                        params_nums_out_range_list.append(name)
+                if "max" in fields_dict.get(name):
+                    if float(data_json[name]) > int(fields_dict.get(name)["max"]):
+                        params_nums_out_range_list.append(name)
+    if len(params_nums_out_range_list) > 0:
+        raise Exception("Out of Range Parameters: "+", ".join(params_nums_out_range_list))
+    
     return names_list, fields_dict
+
+
+def is_null_or_empty(obj):
+    if obj is None:
+        return True
+    elif isinstance(obj, str) and not obj.strip():
+        return True
+    elif isinstance(obj, (list, tuple, dict, set)) and not obj:
+        return True
+    else:
+        return False
 
 #=== === === === === ===
 

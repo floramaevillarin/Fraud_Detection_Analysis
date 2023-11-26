@@ -23,9 +23,9 @@ if __name__ == '__main__':
 def error_handler_404(error):
     return "Page not found", 404
 
-# @app.errorhandler(Exception)
-# def error_handler_exception(error):
-#     return "An error occurred", 500  # Internal Server Error
+@app.errorhandler(Exception)
+def error_handler_exception(error):
+    return "An error occurred", 500  # Internal Server Error
 
 #=== === === === === === === 
 
