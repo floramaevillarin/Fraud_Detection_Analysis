@@ -41,7 +41,7 @@ function read_json() {
             tBody.appendChild(trBody);
 
             let tdColFeat = document.createElement("td");
-            tdColFeat.textContent = field.label;
+            tdColFeat.textContent = field.label+" "+(field.labelPlus ? field.labelPlus : "");
             trBody.appendChild(tdColFeat);
             
             let tdColCtrl = document.createElement("td");
@@ -53,7 +53,7 @@ function read_json() {
                     textField.type = "text";
                     textField.id = field.name;
                     textField.name = field.name;
-                    textField.label = field.label;
+                    textField.label = field.label+" "+(field.labelPlus ? field.labelPlus : "");
                     textField.className = "param textField";
                     textField.style.width = "200px";
                     
@@ -71,7 +71,7 @@ function read_json() {
                     txtNumField.type = "number";
                     txtNumField.id = field.name;
                     txtNumField.name = field.name;
-                    txtNumField.label = field.label;
+                    txtNumField.label = field.label+" "+(field.labelPlus ? field.labelPlus : "");
                     txtNumField.min = field.min;
                     txtNumField.max = field.max;
                     txtNumField.step = field.step;
@@ -92,7 +92,7 @@ function read_json() {
                     txtDecField.type = "number";
                     txtDecField.id = field.name;
                     txtDecField.name = field.name;
-                    txtDecField.label = field.label;
+                    txtDecField.label = field.label+" "+(field.labelPlus ? field.labelPlus : "");
                     txtDecField.min = field.min;
                     txtDecField.max = field.max;
                     txtDecField.step = field.step;
@@ -112,7 +112,7 @@ function read_json() {
                     let listField = document.createElement("select");
                     listField.id = field.name;
                     listField.name = field.name;
-                    listField.label = field.label;
+                    listField.label = field.label+" "+(field.labelPlus ? field.labelPlus : "");
                     listField.className = "param listField";
                     listField.style.width = "200px";
                     
@@ -143,7 +143,7 @@ function read_json() {
                         rdField.name = field.name;
                         rdField.id = field.values[i].code;
                         rdField.value = field.values[i].code;
-                        rdField.label = field.label;
+                        rdField.label = field.label+" "+(field.labelPlus ? field.labelPlus : "");
                         rdField.className = "param rdField";
                       //rdField.textContent = field.values[i].value;
                         tdColCtrl.appendChild(rdField);
@@ -281,15 +281,6 @@ function read_json() {
    let requestHead = new Headers();
    requestHead.append("Content-Type", "application/json");
    
-   /*
-   let param = {};
-   param.param01 = "1";
-   param.param02 = "2";
-   param.param03 = "3";
-   param.param04 = "4";
-   param.param05 = "5";
-   */
-   
    let requestOpt = {}; 
    requestOpt.method = "POST";
    requestOpt.body = JSON.stringify(params);
@@ -297,7 +288,7 @@ function read_json() {
    
    fetch(`${API_URL}`, requestOpt).then(res => res.json()).catch(error => console.error('Error:', error)).then(response => {
         const result = response.result;
-        lblResult.innerHTML  = "<br><b>"+result+"</b>";
+        lblResult.innerHTML  = "<br><b>"+result+"</b><br/>";
    });
 
  }
@@ -305,7 +296,7 @@ function read_json() {
  function reset()
  {
      const lblResult = document.getElementById("lblResult");
-     lblResult.textContent = "<br><b>...</b>";
+     lblResult.innerHTML = "<br/><b>please enter the form parameters ...</b>";
      
      const paramList = document.getElementsByClassName("param");
      
@@ -327,5 +318,5 @@ function read_json() {
 
  function recent_predictions()
  {
-   window.open("index.html", "_self");
+   window.open("/index.html", "_self");
  }
