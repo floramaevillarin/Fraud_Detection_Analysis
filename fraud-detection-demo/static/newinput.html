@@ -15,186 +15,82 @@
           crossorigin="anonymous">
 </head>
 <body>
-<!--<form action = "" name = "" method = "get">-->
     <div class = "container">
-        <div class = "row">
-           <div class = "col-md-12">
-              <h1>New Fraud Prediction</h1>
-           </div>
-        </div>
-
-        <div class = "row">
-         <div class = "col-md-12" style="color:blue">
-            <b>
-            This form works like a demo of our Fraud Detection API.
-            <br/>
-            API spec: 
-            <a target="_blank" id="dynamicLink" href="#">Loading ...</a>
-            <script>
-               document.addEventListener('DOMContentLoaded', function () {
-                 var dynamicLink = document.getElementById('dynamicLink');
-                 var baseUrl = window.location.protocol + "//" + window.location.host;
-                 dynamicLink.href = baseUrl + "/swagger";
-                 dynamicLink.textContent = baseUrl + "/swagger";
-               });
+       <div class = "row">
+          <br>
+       </div>
+       <div class = "row">
+          <div class = "col-md-12">
+             <h2>New Fraud Prediction</h2>
+          </div>
+       </div>
+       <div class = "row">
+          <div class = "col-md-6" style="color:blue">
+             <b>
+             This form works like a demo of our Fraud Detection API
+             <br>
+             API spec: 
+             <a target="_blank" id="dynamicLink" href="#">Loading ...</a>
+             <script>
+                  document.addEventListener('DOMContentLoaded', function ()
+                  {
+                     var dynamicLink = document.getElementById('dynamicLink');
+                     var baseUrl = window.location.protocol + "//" + window.location.host;
+                     dynamicLink.href = baseUrl + "/swagger";
+                     dynamicLink.textContent = baseUrl + "/swagger";
+                  });
              </script>
-
-            </b>
-         </div>
-      </div>
-      <br/>
-      <div class = "row">
-         <div class = "col-md-12" style="color:blue; text-align: right;">
+             </b>
+          </div>
+          <div class = "col-md-6" style = "color:blue; text-align: right;">
             <b>
-               Test quickly,
-               fill out the form with dummy data: 
-            <a target="_self" title="dummy required data" href="javascript:void(0);"  
-               onclick=" 
-                  document.getElementById('TransactionAmt').value = '123.45';
-                  document.getElementById('ProductCD').value = 'H';
-
-                  document.getElementById('card2').value = '';
-                  document.getElementById('card3').value = '100';
-                  document.getElementById('card6').value = 'credit';
-
-                  document.getElementById('P_emaildomain').value = '';
-                  document.getElementById('R_emaildomain').value = '';
-
-                  document.getElementById('C5').value = '100';
-                  document.getElementById('C13').value = '1000';
-
-                  document.getElementById('D2').value = '';
-                  document.getElementById('D3').value = '';
-                  document.getElementById('D8').value = '';
-
-                  document.getElementById('M3').value = '';
-                  document.getElementById('M4').value = '';
-                  document.getElementById('M5').value = '';
-                  document.getElementById('M6').value = '';
-
-                  document.getElementById('V13').value = '';
-                  document.getElementById('V20').value = '';
-                  document.getElementById('V30').value = '';
-                  document.getElementById('V44').value = '';
-                  document.getElementById('V47').value = '';
-                  document.getElementById('V54').value = '';
-                  document.getElementById('V62').value = '';
-                  document.getElementById('V67').value = '';
-                  document.getElementById('V82').value = '';
-                  document.getElementById('V86').value = '';
-                  document.getElementById('V156').value = '';
-                  document.getElementById('V162').value = '';
-                  document.getElementById('V171').value = '';
-                  document.getElementById('V198').value = '';
-                  document.getElementById('V264').value = '';
-                  document.getElementById('V283').value = '';
-                  document.getElementById('V307').value = '';
-                  document.getElementById('V312').value = '';
-
-                  document.getElementById('DeviceType').value = 'mobile';
-
-                  document.getElementById('id_01').value = '-50';
-                  document.getElementById('id_09').value = '';
-                  document.getElementById('id_17').value = '';
-                  document.getElementById('id_30').value = '';
-                  document.getElementById('id_31').value = '';
-               ">01
-            </a>, 
-            <a target="_self" title="dummy all data" href="javascript:void(0);" 
-               onclick="
-                  document.getElementById('TransactionAmt').value = '123.45';
-                  document.getElementById('ProductCD').value = 'H';
-
-                  document.getElementById('card2').value = '321';
-                  document.getElementById('card3').value = '100';
-                  document.getElementById('card6').value = 'credit';
-
-                  document.getElementById('P_emaildomain').value = 'yahoo.com';
-                  document.getElementById('R_emaildomain').value = 'gmail.com';
-
-                  document.getElementById('C5').value = '100';
-                  document.getElementById('C13').value = '1000';
-
-                  document.getElementById('D2').value = '100';
-                  document.getElementById('D3').value = '200';
-                  document.getElementById('D8').value = '300.30';
-
-                  document.getElementById('M3').value = 'T';
-                  document.getElementById('M4').value = 'M2';
-                  document.getElementById('M5').value = 'F';
-                  document.getElementById('M6').value = 'F';
-
-                  document.getElementById('V13').value = '3';
-                  document.getElementById('V20').value = '8';
-                  document.getElementById('V30').value = '5';
-                  document.getElementById('V44').value = '24';
-                  document.getElementById('V47').value = '6';
-                  document.getElementById('V54').value = '3';
-                  document.getElementById('V62').value = '5';
-                  document.getElementById('V67').value = '4';
-                  document.getElementById('V82').value = '3';
-                  document.getElementById('V86').value = '15';
-                  document.getElementById('V156').value = '12';
-                  document.getElementById('V162').value = '2300';
-                  document.getElementById('V171').value = '31';
-                  document.getElementById('V198').value = '11';
-                  document.getElementById('V264').value = '73600';
-                  document.getElementById('V283').value = '34';
-                  document.getElementById('V307').value = '76000.00';
-                  document.getElementById('V312').value = '27600';
-
-                  document.getElementById('DeviceType').value = 'mobile';
-
-                  document.getElementById('id_01').value = '-50';
-                  document.getElementById('id_09').value = '-10';
-                  document.getElementById('id_17').value = '164';
-                  document.getElementById('id_30').value = 'Android';
-                  document.getElementById('id_31').value = 'Microsoft/Windows';
-               ">02
-            </a>
+            Test quickly, fill out the form with dummy data: 
+            <a href = "javascript:void(0);" onclick = "load_examples('example_01');">1</a>,
+            <a href = "javascript:void(0);" onclick = "load_examples('example_02');">2</a>
             </b>
-         </div>
-      </div>
-
-        <div class = "row">
-           <div class = "col-md-12">
-              <br>
-           </div>
-        </div>
-        <div class = "row">
-           <div id = "new_input_div" class = "col-md-12 table-responsive">
-           </div>
-        </div>
-        <div class = "row">
-            <div class = "col-md-3 d-grid">
-               <input type = "button" class = "btn btn-success" value = "Go to Recent Predictions"  onclick = "recent_predictions()">
-            </div>
-
-           <div class = "col-md-5">
-           </div>
-           <div class = "col-md-2 d-grid">
-              <input type = "button" class = "btn btn-warning" value = "Clean Form"   onclick = "reset()">
-           </div>
-           <div class = "col-md-2 d-grid">
-              <input type = "button" class = "btn btn-danger" value = " PREDICT " onclick = "validateFields()">
-           </div>
-        </div>
-        <br/> <br/>
-        <div class = "row">
-           <div class = "col-md-3" style="background-color: lightblue;">
-               <label><br/><b>PREDICTION</b><br/><br/></label>
-           </div>
-           <div class = "col-md-9" style="background-color: lightgrey;">
-            <label id = "lblResult" name = "lblResult">
-               <br/><b>please enter the form parameters ...</b><br/><br/>
-            </label>
-           </div>
-         </div>
-      </div>
-      <br/>
-      <br/>
+          </div>
+       </div>
+       <div class = "row">
+          <div class = "col-md-12">
+             <br>
+          </div>
+       </div>
+       <div class = "row">
+          <div id = "new_input_div" class = "col-md-12 table-responsive">
+          </div>
+       </div>
+       <div class = "row">
+          <div class = "col-md-3 d-grid">
+             <input type = "button" class = "btn btn-success" value = "Go to Recent Predictions"  onclick = "recent_predictions();">
+          </div>
+          <div class = "col-md-5">
+          </div>
+          <div class = "col-md-2 d-grid">
+             <input type = "button" class = "btn btn-warning" value = "Clean Form" onclick = "reset();">
+          </div>
+          <div class = "col-md-2 d-grid">
+             <input type = "button" class = "btn btn-danger" value = "PREDICT" onclick = "validateFields();">
+          </div>
+       </div>
+       <div class = "row">
+          <br>
+          <br>
+       </div>
+       <div class = "row">
+          <div class = "col-md-3" style = "background-color: lightblue;">
+             <label><br><b>PREDICTION</b><br><br></label>
+          </div>
+          <div class = "col-md-9" style = "background-color: lightgrey;">
+             <label id = "lblResult" name = "lblResult">
+                <br><b>please enter the form parameters...</b><br><br>
+             </label>
+          </div>
+       </div>
     </div>
-<!--</form>-->
+    <div class = "row">
+       <br>
+       <br>
+    </div>
     <!--javascript-->
     <script type = "text/javascript" src = "js/newinput.js"></script>
 </body>

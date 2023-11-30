@@ -41,7 +41,7 @@ function read_json() {
             tBody.appendChild(trBody);
 
             let tdColFeat = document.createElement("td");
-            tdColFeat.textContent = field.label+" "+(field.labelPlus ? field.labelPlus : "");
+            tdColFeat.textContent = field.label + " " + (field.labelPlus ? field.labelPlus : "");
             trBody.appendChild(tdColFeat);
             
             let tdColCtrl = document.createElement("td");
@@ -53,7 +53,7 @@ function read_json() {
                     textField.type = "text";
                     textField.id = field.name;
                     textField.name = field.name;
-                    textField.label = field.label+" "+(field.labelPlus ? field.labelPlus : "");
+                    //textField.label = field.label+" "+(field.labelPlus ? field.labelPlus : "");
                     textField.className = "param textField";
                     textField.style.width = "200px";
                     
@@ -71,7 +71,7 @@ function read_json() {
                     txtNumField.type = "number";
                     txtNumField.id = field.name;
                     txtNumField.name = field.name;
-                    txtNumField.label = field.label+" "+(field.labelPlus ? field.labelPlus : "");
+                    //txtNumField.label = field.label+" "+(field.labelPlus ? field.labelPlus : "");
                     txtNumField.min = field.min;
                     txtNumField.max = field.max;
                     txtNumField.step = field.step;
@@ -92,7 +92,7 @@ function read_json() {
                     txtDecField.type = "number";
                     txtDecField.id = field.name;
                     txtDecField.name = field.name;
-                    txtDecField.label = field.label+" "+(field.labelPlus ? field.labelPlus : "");
+                    //txtDecField.label = field.label+" "+(field.labelPlus ? field.labelPlus : "");
                     txtDecField.min = field.min;
                     txtDecField.max = field.max;
                     txtDecField.step = field.step;
@@ -112,7 +112,7 @@ function read_json() {
                     let listField = document.createElement("select");
                     listField.id = field.name;
                     listField.name = field.name;
-                    listField.label = field.label+" "+(field.labelPlus ? field.labelPlus : "");
+                    //listField.label = field.label+" "+(field.labelPlus ? field.labelPlus : "");
                     listField.className = "param listField";
                     listField.style.width = "200px";
                     
@@ -143,7 +143,7 @@ function read_json() {
                         rdField.name = field.name;
                         rdField.id = field.values[i].code;
                         rdField.value = field.values[i].code;
-                        rdField.label = field.label+" "+(field.labelPlus ? field.labelPlus : "");
+                      //rdField.label = field.label+" "+(field.labelPlus ? field.labelPlus : "");
                         rdField.className = "param rdField";
                       //rdField.textContent = field.values[i].value;
                         tdColCtrl.appendChild(rdField);
@@ -320,3 +320,15 @@ function read_json() {
  {
    window.open("/index.html", "_self");
  }
+
+ function load_examples(pTipo)
+ {
+   fetch(window.location.protocol + "//" + window.location.host + '/data/fields.json').then(res => res.json()).then(fields => {
+      fields.forEach(field => {
+         const inputField = document.getElementById(field.name);
+         inputField.value = field[pTipo];
+      });
+   });
+ }
+
+ 
