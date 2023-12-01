@@ -135,10 +135,17 @@ def homologate(names_list, fields_dict, data_json):
             homo_json[homo_name] = np.nan
             continue                        
 
+        if 'encoded_func' in fields_dict[name] and fields_dict[name]['encoded_func']:
+            variables = { 'value': value }
+            exec(fields_dict[name]['encoded_func'], globals(), variables)
+            result = variables.get('result')
+            homo_json[homo_name] = result
+            #continue
+
         # if there are not encoded list, set the value as float and continue
         if not 'encoded_list' in fields_dict[name]:
             homo_json[homo_name] = float(value)
-            continue
+            continue            
         
         # getting the encoded list
         values_dict = { }
