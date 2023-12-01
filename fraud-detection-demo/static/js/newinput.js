@@ -160,6 +160,28 @@ function read_json() {
                     }
                     
                     break;
+                    
+               case "datetime":
+                    let dateTimeField = document.createElement("input");
+                    dateTimeField.type = "datetime-local";
+                    dateTimeField.id = field.name;
+                    dateTimeField.name = field.name;
+                    dateTimeField.label = field.label;
+                    dateTimeField.min = field.min;
+                    dateTimeField.max = field.max;
+                  //dateTimeField.value = currentDateTime();
+                    dateTimeField.className = "param dateTimeField";
+                    dateTimeField.style.width = "200px";
+                    
+                    if (Boolean(field.required))
+                    {
+                       dateTimeField.required = true;
+                       dateTimeField.style = "background-color:" + bgReqColor + "; width:200px;";
+                    };
+                    
+                    tdColCtrl.appendChild(dateTimeField);
+                    
+                    break;
             };
  
        });
@@ -175,19 +197,20 @@ function read_json() {
          switch (paramList[i].type) {
             case "text":
             case "select-one":
-
+            case "datetime-local":
+                 
                  if (paramList[i].required)
                  {
-                 if (paramList[i].value == "")
-                 {
-                    alert(paramList[i].label + " is required!");
-                    paramList[i].focus();
-                    return;              
-                 };
+                    if (paramList[i].value == "")
+                    {
+                       alert(paramList[i].label + " is required!");
+                       paramList[i].focus();
+                       return;              
+                    };
                  };
                  
                  break;
-
+                 
             case "number":
                  
                  if (paramList[i].required)
@@ -253,6 +276,7 @@ function read_json() {
           case "number":
           case "decimal":
           case "select-one":
+          case "datetime-local":
                //console.log(paramList[i].name + " : ", paramList[i].value);
                params[paramList[i].name] = paramList[i].value;
                break;
@@ -294,6 +318,7 @@ function read_json() {
             case "number":
             case "decimal":
             case "select-one":
+            case "datetime-local":
                  document.getElementById(paramList[i].id).value = "";
                  break;
             case "radio":
@@ -304,13 +329,13 @@ function read_json() {
 
  }
 
- function recent_predictions()
- {
+function recent_predictions()
+{
    window.open("/index.html", "_self");
- }
+}
 
- function load_examples(pTipo)
- {
+function load_examples(pTipo)
+{
    const lblResult = document.getElementById("lblResult");
    lblResult.innerHTML = "<br><strong>" + tmpResultMsg + "</strong>";
 
@@ -320,6 +345,17 @@ function read_json() {
          inputField.value = field[pTipo];
       });
    });
- }
+}
 
- 
+function currentDateTime()
+{
+    dateNow       = new Date();
+    const year    = dateNow.getFullYear();
+    const month   = dateNow.getMonth() + 1;
+    const day     = dateNow.getDate();
+    const hour    = dateNow.getHours();
+    const minute  = dateNow.getMinutes();
+    const dateStr = year + "-" + ("0" + month).slice(-2) + "-" + ("0" + day).slice(-2) + "T" + ("0" + hour).slice(-2) + ":" + ("0" + minute).slice(-2);
+    
+    return dateStr;
+ }
