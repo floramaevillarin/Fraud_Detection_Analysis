@@ -16,6 +16,7 @@ RESULT_ERROR     = "ERROR"
 DATA_EMPTY_VALUE = "-"
 
 def post(request):
+    homo_json = ""
     try:
         # getting the JSON data from the request
         data_json = request.json
@@ -33,7 +34,7 @@ def post(request):
         result = prediction(homo_json)
         
         # saging the data
-        save_data(names_list, data_json, result)
+        save_data(names_list, data_json, homo_json, result)
         
         response = {RESULT: result}
         return jsonify(response)
@@ -41,7 +42,7 @@ def post(request):
     except Exception as ex:
         # throwing the error in result
         error_msg = RESULT_ERROR+': '+str(ex.args[0])
-        save_data(names_list, data_json, error_msg)
+        save_data(names_list, data_json, homo_json, error_msg)
 
         response  = {RESULT: error_msg}
         return jsonify(response), 400  # 400 Bad Request
@@ -179,11 +180,12 @@ def prediction(homo_json):
 
 #=== === === === === ===
 
-def save_data(names_list, data_json, result):
+def save_data(names_list, data_json, homo_json, result):
     data_filename = "data/data.csv"
     with open(data_filename, 'a') as file:
         result_normalized = '' if is_null_or_empty(result) else result.replace(',',';')
-        new_line = result_normalized + ', ' + json_csv_line(names_list, data_json) 
+        homo_strg = str(homo_json).replace(',','; ').replace('\'','').replace('\"','')
+        new_line = result_normalized + ', ' + json_csv_line(names_list, data_json) + ', ' + homo_strg
         file.write('\n'+new_line)
 
 def json_csv_line(names_list, data_json):

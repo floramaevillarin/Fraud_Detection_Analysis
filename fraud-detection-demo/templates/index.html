@@ -19,6 +19,10 @@
       #recent_table th, td {
          white-space: unset;
       }
+      .info-text {
+         border-bottom: 1px dashed #333;
+         display: inline-block;
+      }
    </style>
 </head>
 <body>
@@ -125,6 +129,11 @@
                thCol.style = "background-color:lightgray; width:200px;vertical-align:top;"; 
                trHead.appendChild(thCol);
             });
+
+            thCol = document.createElement("th");
+            thCol.textContent = "TRANSFORMED DATA SENT TO THE MODEL";
+            thCol.style = "background-color:lightgray;vertical-align:top;";
+            trHead.appendChild(thCol);
          });
       
       }
@@ -160,6 +169,14 @@
                         firstCol = false;
                         tdCol.className = "first-col";
                         tdCol.style = (field == "NOT-FRAUD" ? "background-color:#DAF9E4;" : "background-color:#FAD2D2;");
+                     }
+
+                     let lastCol = field.includes("{") && field.includes("TransactionAmt");
+                     if (lastCol) {
+                        tdCol = document.createElement("td");
+                        //tdCol.textContent = field;
+                        tdCol.innerHTML = "<span class='info-text' title='"+field+"'>show data</span>"
+                        tdCol.className = "last-col";
                      }
                      
                      trBody.appendChild(tdCol);
