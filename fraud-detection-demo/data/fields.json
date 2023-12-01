@@ -101,7 +101,7 @@
     "required": true,
     "min": 0,
     "max": 349,
-    "example_01": "",
+    "example_01": "100",
     "example_02": 100
   },
   {
@@ -112,7 +112,7 @@
     "required": true,
     "min": 0,
     "max": 2918,
-    "example_01": "",
+    "example_01": "1000",
     "example_02": 1000
   },
 
