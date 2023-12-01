@@ -1,0 +1,58 @@
+COPY NEXT TEXT AND SAVE IT INTO model_v4/model_xgbv4_joblib_info_X.csv
+<class 'pandas.core.frame.DataFrame'>
+Index: 442905 entries, 2987000 to 3429904
+Data columns (total 50 columns):
+ #   Column                           Non-Null Count   Dtype  
+---  ------                           --------------   -----  
+ 0   V264                             105261 non-null  float32
+ 1   card6_credit                     442905 non-null  int32  
+ 2   V30                              379313 non-null  float32
+ 3   addr2_target_encoded             392207 non-null  float64
+ 4   V283                             442631 non-null  float32
+ 5   C5                               442905 non-null  float64
+ 6   C1                               442905 non-null  float64
+ 7   V156                             67246 non-null   float32
+ 8   D3                               236769 non-null  float64
+ 9   R_emaildomain_bin_google         442905 non-null  int32  
+ 10  card2_target_encoded             436143 non-null  float64
+ 11  M5_T                             442905 non-null  int32  
+ 12  ProductCD_H                      442905 non-null  int32  
+ 13  V62                              378306 non-null  float32
+ 14  id_36_T                          442905 non-null  int32  
+ 15  V198                             111436 non-null  float32
+ 16  M4_nan                           442905 non-null  int32  
+ 17  V44                              312634 non-null  float32
+ 18  V67                              378306 non-null  float32
+ 19  Browser_id_31_Chrome             442905 non-null  int32  
+ 20  M6_F                             442905 non-null  int32  
+ 21  ProductCD_R                      442905 non-null  int32  
+ 22  D2                               224113 non-null  float64
+ 23  id_12_Found                      442905 non-null  int32  
+ 24  D8                               58746 non-null   float64
+ 25  R_emaildomain_bin_anonymous      442905 non-null  int32  
+ 26  OS_id_30_Mac                     442905 non-null  int32  
+ 27  V86                              370570 non-null  float32
+ 28  addr_target_encoded              392207 non-null  float64
+ 29  P_emaildomain_suffix_us          442905 non-null  int32  
+ 30  V13                              379313 non-null  float32
+ 31  M3_F                             442905 non-null  int32  
+ 32  V80                              370570 non-null  float32
+ 33  device_name_Trident              442905 non-null  int32  
+ 34  V312                             442893 non-null  float32
+ 35  DeviceType_mobile                442905 non-null  int32  
+ 36  V289                             442631 non-null  float32
+ 37  TransactionAmt                   442905 non-null  float64
+ 38  card3_target_encoded             442082 non-null  float64
+ 39  M6_nan                           442905 non-null  int32  
+ 40  TransactionAmt_decimal           442905 non-null  int32  
+ 41  V160                             67246 non-null   float32
+ 42  M3_T                             442905 non-null  int32  
+ 43  V173                             111362 non-null  float32
+ 44  Browser_id_31_Internet Explorer  442905 non-null  int32  
+ 45  V307                             442893 non-null  float32
+ 46  M4_M0                            442905 non-null  int32  
+ 47  V47                              312634 non-null  float32
+ 48  Transaction_hour_9               442905 non-null  int32  
+ 49  Transaction_hour_8               442905 non-null  int32  
+dtypes: float32(17), float64(10), int32(23)
+memory usage: 104.8 MB

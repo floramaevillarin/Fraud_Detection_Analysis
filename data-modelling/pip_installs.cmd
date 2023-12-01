@@ -15,3 +15,4 @@ pip install cufflinks
 pip install statsmodels
 pip install shap
 pip install chart_studio
+pin install hyperopt
