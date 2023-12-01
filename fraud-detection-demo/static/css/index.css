@@ -1,3 +1,7 @@
+html, body {
+  background-image: url("/static/img/bg.png");
+}
+
 .dtHorizontalExampleWrapper {
   max-width: 600px;
   margin: 0 auto;
@@ -26,4 +30,10 @@ table.dataTable thead .sorting_desc:before,
 table.dataTable thead .sorting_desc_disabled:after,
 table.dataTable thead .sorting_desc_disabled:before {
  bottom: .5em;
+}
+
+.first-col {
+   position: absolute;
+   width: 104px;
+   padding-left: 10px!important;
 }

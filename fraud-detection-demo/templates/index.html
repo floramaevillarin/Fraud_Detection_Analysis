@@ -27,8 +27,54 @@
          <br>
       </div>
       <div class = "row">
+         <div class = "col-md-3">
+            <img src = "/static/img/lambton.png" alt = "lambton.png" style = "vertical-align:middle;">
+         </div>
+         <div class = "col-md-9">
+            <h2 style="color:white;vertical-align:middle;">BDM-3014 Introduction to Artificial Intelligence</h2>
+            <h6 style="color:white;vertical-align:middle;">DSMM 2023F-T2</h6>
+         </div>
+      </div>
+      <div class = "row">
+         <br>
+      </div>
+      <div class = "row">
+         <div class = "col-md-12">
+            <h4 style="color:white;">Professor: Bhavik Gandhi</h4>
+         </div>
+      </div>
+      <div class = "row">
+         <div class = "col-md-12">
+            <h5 style="color:white;">Group P3</h5>
+         </div>
+      </div>
+      <div class = "row">
+         <div class = "col-md-4">
+            <ul style="color:white;">
+               <li>Marzieh Mohammadi Kokaneh</li>
+               <li>Eduardo Jr Morales</li>
+               <li>Chibuike Okoroama</li>
+               <li>Modupeola Omodunni Oyatokun</li>
+               <li>Haldo Jose Somoza Solis</li>
+            </ul>
+         </div>
+         <div class = "col-md-4">
+            <ul style="color:white;">
+               <li>Ezgi Tanyeli</li>
+               <li>Flora Mae Villarin</li>
+               <li>Eduardo Roberto Williams Cascante</li>
+               <li>Jumoke Yekeen</li>
+            </ul>
+         </div>
+         <div class = "col-md-4">
+         </div>
+      </div>
+      <div class = "row">
+         <br>
+      </div>
+      <div class = "row">
          <div class = "col-md-10">
-            <h2>Recent Fraud Predictions</h2>
+            <h2 style="color:lightskyblue"><strong>Recent Fraud Predictions</strong></h2>
          </div>
          <div class = "col-md-2 d-grid">
             <input type = "button" class = "btn btn-danger" value = "New Prediction" onclick = "new_input();">
@@ -69,14 +115,14 @@
             tHead.appendChild(trHead);
             
             let thCol = document.createElement("th");
-            thCol.textContent = "RESULT PREDICTION";
-            thCol.style = "background-color:lightgray; width:200px;";
+            thCol.textContent = "RESULTING PREDICTION";
+            thCol.style = "background-color:lightgray;vertical-align:top;";
             trHead.appendChild(thCol);
 
             fields.forEach(field => {
                let thCol = document.createElement("th");
                thCol.textContent = field.label;
-               thCol.style = "background-color:lightgray; width:200px;";
+               thCol.style = "background-color:lightgray; width:200px;vertical-align:top;"; 
                trHead.appendChild(thCol);
             });
          });
@@ -102,10 +148,20 @@
                   tBody.appendChild(trBody);
                   
                   let fields = line.split(",");
-                  
+                  let firstCol = true;
+
                   fields.forEach(field => {
+
                      let tdCol = document.createElement("td");
                      tdCol.textContent = field;
+                     
+                     if (firstCol)
+                     {
+                        firstCol = false;
+                        tdCol.className = "first-col";
+                        tdCol.style = (field == "NOT-FRAUD" ? "background-color:#DAF9E4;" : "background-color:#FAD2D2;");
+                     }
+                     
                      trBody.appendChild(tdCol);
                   });
                }

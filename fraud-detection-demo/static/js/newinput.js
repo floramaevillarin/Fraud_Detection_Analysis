@@ -1,3 +1,5 @@
+const tmpResultMsg = "please, enter form parameters and click PREDICT button to get the result...";
+
 read_json();
 
 function read_json() {
@@ -53,7 +55,7 @@ function read_json() {
                     textField.type = "text";
                     textField.id = field.name;
                     textField.name = field.name;
-                    //textField.label = field.label+" "+(field.labelPlus ? field.labelPlus : "");
+                    textField.label = field.label;
                     textField.className = "param textField";
                     textField.style.width = "200px";
                     
@@ -71,7 +73,7 @@ function read_json() {
                     txtNumField.type = "number";
                     txtNumField.id = field.name;
                     txtNumField.name = field.name;
-                    //txtNumField.label = field.label+" "+(field.labelPlus ? field.labelPlus : "");
+                    txtNumField.label = field.label;
                     txtNumField.min = field.min;
                     txtNumField.max = field.max;
                     txtNumField.step = field.step;
@@ -92,7 +94,7 @@ function read_json() {
                     txtDecField.type = "number";
                     txtDecField.id = field.name;
                     txtDecField.name = field.name;
-                    //txtDecField.label = field.label+" "+(field.labelPlus ? field.labelPlus : "");
+                    txtDecField.label = field.label;
                     txtDecField.min = field.min;
                     txtDecField.max = field.max;
                     txtDecField.step = field.step;
@@ -112,7 +114,7 @@ function read_json() {
                     let listField = document.createElement("select");
                     listField.id = field.name;
                     listField.name = field.name;
-                    //listField.label = field.label+" "+(field.labelPlus ? field.labelPlus : "");
+                    listField.label = field.label;
                     listField.className = "param listField";
                     listField.style.width = "200px";
                     
@@ -143,7 +145,7 @@ function read_json() {
                         rdField.name = field.name;
                         rdField.id = field.values[i].code;
                         rdField.value = field.values[i].code;
-                      //rdField.label = field.label+" "+(field.labelPlus ? field.labelPlus : "");
+                        rdField.label = field.label;
                         rdField.className = "param rdField";
                       //rdField.textContent = field.values[i].value;
                         tdColCtrl.appendChild(rdField);
@@ -253,7 +255,7 @@ function read_json() {
 
    // initializing the label result
    const lblResult = document.getElementById("lblResult");
-   lblResult.innerHTML   = "<br><b>PREDICTING...</b>";
+   lblResult.innerHTML   = "<br><strong>PREDICTING...</strong>";
 
    // reading input params
    const paramList = document.getElementsByClassName("param");
@@ -288,7 +290,7 @@ function read_json() {
    
    fetch(`${API_URL}`, requestOpt).then(res => res.json()).catch(error => console.error('Error:', error)).then(response => {
         const result = response.result;
-        lblResult.innerHTML  = "<br><b>"+result+"</b><br/>";
+        lblResult.innerHTML  = "<br><strong>" + result + "</strong>";
    });
 
  }
@@ -296,7 +298,7 @@ function read_json() {
  function reset()
  {
      const lblResult = document.getElementById("lblResult");
-     lblResult.innerHTML = "<br/><b>please enter the form parameters ...</b>";
+     lblResult.innerHTML = "<br><strong>" + tmpResultMsg + "</strong>";
      
      const paramList = document.getElementsByClassName("param");
      
@@ -323,6 +325,9 @@ function read_json() {
 
  function load_examples(pTipo)
  {
+   const lblResult = document.getElementById("lblResult");
+   lblResult.innerHTML = "<br><strong>" + tmpResultMsg + "</strong>";
+
    fetch(window.location.protocol + "//" + window.location.host + '/data/fields.json').then(res => res.json()).then(fields => {
       fields.forEach(field => {
          const inputField = document.getElementById(field.name);
