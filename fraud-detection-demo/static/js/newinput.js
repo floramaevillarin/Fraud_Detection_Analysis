@@ -71,6 +71,7 @@ function read_json() {
                case "number":
                     let txtNumField = document.createElement("input");
                     txtNumField.type = "number";
+                    txtNumField.subtype = "integer";
                     txtNumField.id = field.name;
                     txtNumField.name = field.name;
                     txtNumField.label = field.label;
@@ -92,6 +93,7 @@ function read_json() {
                case "decimal":
                     let txtDecField = document.createElement("input");
                     txtDecField.type = "number";
+                    txtDecField.subtype = "decimal";
                     txtDecField.id = field.name;
                     txtDecField.name = field.name;
                     txtDecField.label = field.label;
@@ -190,56 +192,40 @@ function read_json() {
                  
                  if (paramList[i].required)
                  {
-                 if (paramList[i].value == "")
-                 {
-                    alert(paramList[i].label + " is required!");
-                    paramList[i].focus();
-                    return;
-                 } 
-                 else
-                 {
-                    const valField = parseInt(paramList[i].value);
-                    const minField = parseInt(paramList[i].min);
-                    const maxField = parseInt(paramList[i].max);
-   
-                    if (valField < minField || valField > maxField)
-                    {
-                       alert(paramList[i].label + " must be between " + minField + " and " + maxField);
-                       paramList[i].focus();
-                       return;
-                    };
-                 };
-                 };
-                 
-                 break;
-                 
-            case "decimal":
-                 
-                 if (paramList[i].required)
-                 {
                     if (paramList[i].value == "")
                     {
                        alert(paramList[i].label + " is required!");
                        paramList[i].focus();
                        return;
-                    } 
+                    }
                     else
                     {
-                       const valField = parseInt(paramList[i].value);
-                       const minField = parseInt(paramList[i].min);
-                       const maxField = parseInt(paramList[i].max);
-   
+                       if (paramList[i].subtype == "integer")
+                       {
+                          if (paramList[i].value.indexOf(".") > -1 || paramList[i].value.indexOf(",") > -1)
+                          {
+                             alert(paramList[i].label + " must be an integer value");
+                             paramList[i].focus();
+                             return;
+                          };
+                       };
+                       
+                       const valField = parseFloat(paramList[i].value);
+                       const minField = parseFloat(paramList[i].min);
+                       const maxField = parseFloat(paramList[i].max);
+                       
                        if (valField < minField || valField > maxField)
                        {
                           alert(paramList[i].label + " must be between " + minField + " and " + maxField);
                           paramList[i].focus();
                           return;
                        };
+
                     };
                  };
                  
                  break;
-                 
+                                  
             case "radio":
                  break;
          };
