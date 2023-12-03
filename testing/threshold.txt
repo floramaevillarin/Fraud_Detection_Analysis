@@ -1,4 +1,4 @@
 
 In machine learning, the threshold is a critical parameter that acts as a decision boundary for classifying instances. It determines the level of confidence required from the model to assign a specific class to an instance. A higher threshold results in more conservative predictions, reducing false positives but potentially increasing false negatives. Conversely, a lower threshold increases sensitivity, capturing more positive instances but also raising the risk of false positives.
 
-Fine-tuning the threshold involves balancing precision and recall based on the specific needs of the application. Adjusting this parameter is a valuable technique for optimizing model performance and achieving the desired trade-off between different evaluation metrics.
+Fine-tuning the threshold involves balancing precision and recall based on the specific needs of the application. Adjusting this parameter is a valuable technique for optimizing model performance and achieving the desired trade-off between different evaluation metrics. 
