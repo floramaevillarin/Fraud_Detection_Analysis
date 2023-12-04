@@ -30,17 +30,8 @@ def post(request):
         # homologating values
         homo_json = homologate(names_list, fields_dict, data_json)
         
-        # getting predictions
-        result01, result01_proba = prediction(homo_json, 'model01_xgboost_joblib')
-        result02, result02_proba = prediction(homo_json, 'model02_lightgbm_joblib')
-        print("XGBoost ", result01, ",", result01_proba)
-        print("LightGBM", result02, ",", result02_proba)
-        # choosing final presiction considering both answers
-        result = result01 if result01         ==  result02 else \
-             RESULT_FRAUD if RESULT_FRAUD     in (result01,result02) else \
-         RESULT_NOT_FRAUD if RESULT_NOT_FRAUD in (result01,result02) else \
-           RESULT_UNKNOWN if RESULT_UNKNOWN   in (result01,result02) else \
-             RESULT_ERROR
+        # getting the unified prediction
+        result = unified_prediction(homo_json)
         
         # saving the data and result
         save_data(names_list, data_json, homo_json, result)
@@ -248,6 +239,32 @@ def is_number(input):
         return False
 
 #=== === === === === ===
+
+def unified_prediction(homo_json):
+    # getting factors of both predictions
+    result01, result01_proba = prediction(homo_json, 'model01_xgboost_joblib')
+    result02, result02_proba = prediction(homo_json, 'model02_lightgbm_joblib')
+
+    # choosing final prediction (abandoned criteria)
+    print("XGBoost ", result01, ",", result01_proba)
+    print("LightGBM", result02, ",", result02_proba)
+    # result = result01 if result01         ==  result02 else \
+    #      RESULT_FRAUD if RESULT_FRAUD     in (result01,result02) else \
+    #  RESULT_NOT_FRAUD if RESULT_NOT_FRAUD in (result01,result02) else \
+    #    RESULT_UNKNOWN if RESULT_UNKNOWN   in (result01,result02) else \
+    #      RESULT_ERROR
+    
+    # choosing final prediction
+    # 1. Run XGB, get the probas. If the proba >0.5 assign 1
+    # 2. If xgb proba <=0.5 then run lgbm
+    # 3. If lgbm proba >0.5 assign 1, otherwise 0
+    result = RESULT_UNKNOWN
+    if   result01_proba > 0.5: result = RESULT_FRAUD
+    elif result02_proba > 0.5: result = RESULT_FRAUD
+    else: result = RESULT_NOT_FRAUD
+
+    # returning the chosen prediction
+    return result
 
 # getting the prediction using the homologated data and the model name
 def prediction(homo_json, model_name):
