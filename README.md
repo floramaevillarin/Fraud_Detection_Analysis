@@ -1,5 +1,5 @@
 # fraud-detection
-fraud detection analysis
+Fraud Detection Analysis
 
 Problem Statement:
 In the contemporary digital age, credit card fraud has emerged as a significant and pervasive threat, causing financial losses for financial institutions, businesses, and individuals. The problem has been further intensified by the proliferation of electronic transactions and online purchasing, which endangers consumer financial security and compromises the integrity of economic systems. 
@@ -22,5 +22,3 @@ Workflow:
 
 Wireframe:
 ![image](https://github.com/bdm3014/fraud-detection/assets/73394108/d4f92ffc-d61b-4c27-a6a6-04ac98d70c4a)
-
-

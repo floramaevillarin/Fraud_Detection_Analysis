@@ -31,8 +31,10 @@ def post(request):
         homo_json = homologate(names_list, fields_dict, data_json)
         
         # getting predictions
-        result01 = prediction(homo_json, 'model01_xgboost_joblib')
-        result02 = prediction(homo_json, 'model02_lightgbm_joblib')
+        result01, result01_proba = prediction(homo_json, 'model01_xgboost_joblib')
+        result02, result02_proba = prediction(homo_json, 'model02_lightgbm_joblib')
+        print("XGBoost ", result01, ",", result01_proba)
+        print("LightGBM", result02, ",", result02_proba)
         # choosing final presiction considering both answers
         result = result01 if result01         ==  result02 else \
              RESULT_FRAUD if RESULT_FRAUD     in (result01,result02) else \
@@ -268,11 +270,13 @@ def prediction(homo_json, model_name):
     if isLGBMClassifier: dataframe_X = dataframe_X[model_loaded.feature_name_]
 
     # calling the model's predict method
-    y_pred = model_loaded.predict(dataframe_X)   
+    y_pred = model_loaded.predict(dataframe_X)
+    # calling the model's predict probability method
+    y_pred_proba = model_loaded.predict_proba(dataframe_X)[:, 1]  
 
     # getting the result, interpreting, and returning the prediction
     result = str(y_pred[0])
-    return RESULT_FRAUD if result == "1" else RESULT_NOT_FRAUD if result == "0" else RESULT_UNKNOWN
+    return RESULT_FRAUD if result == "1" else RESULT_NOT_FRAUD if result == "0" else RESULT_UNKNOWN, y_pred_proba
 
 #=== === === === === ===
 
