@@ -9,6 +9,7 @@
     "max": 1000000.00,
     "example_01": 123.45,
     "example_02": 123.45,
+    "example_03": 438.00,
     "encoded_name": "TransactionAmt_decimal",
     "encoded_func": "result = round((float(value) % 1) * 1000)" 
   },
@@ -27,6 +28,7 @@
     ],
     "example_01": "H",
     "example_02": "H",
+    "example_03": "S",
     "encoded_name": "ProductCD_R",
     "encoded_func": "result = 1 if value == 'R' else 0" 
   },
@@ -40,7 +42,8 @@
     "min": 1000,
     "max": 19000,
     "example_01": 9999,
-    "example_02": 9999
+    "example_02": 9999,
+    "example_03": 1000
   },
   {
     "name": "card2",
@@ -52,6 +55,7 @@
     "max": 600,
     "example_01": "",
     "example_02": 321,
+    "example_03": "",
     "encoded_name": "card2_target_encoded",
     "encoded_list": "list-card2-to-card2_target_encoded.json"
   },
@@ -65,6 +69,7 @@
     "max": 299,
     "example_01": 100,
     "example_02": 100,
+    "example_03": 100,
     "encoded_name": "card3_target_encoded",
     "encoded_list": "list-card3-to-card3_target_encoded.json"
   },
@@ -78,6 +83,7 @@
     "max": 240,
     "example_01": 199,
     "example_02": 199,
+    "example_03": 100,
     "encoded_name": "card5_target_encoded",
     "encoded_list": "list-card5-to-card5_target_encoded.json"
   },
@@ -93,6 +99,7 @@
     ],
     "example_01": "credit",
     "example_02": "credit",
+    "example_03": "credit",
     "encoded_name": "card6_debit",
     "encoded_func": "result = 1 if 'debit'.lower() in value.lower()  else 0" 
   },
@@ -108,6 +115,7 @@
     "max": 540,
     "example_01": "",
     "example_02": 319,
+    "example_03": "",
     "encoded_name": "addr1_target_encoded",
     "encoded_list": "list-addr1-to-addr1_target_encoded.json"
   },
@@ -121,6 +129,7 @@
     "max": 102,
     "example_01": "",
     "example_02": 59,
+    "example_03": "",
     "encoded_name": "addr2_target_encoded",
     "encoded_list": "list-addr2-to-addr2_target_encoded.json"
   },
@@ -135,7 +144,8 @@
     "min": 0,
     "max": 10300,
     "example_01": "",
-    "example_02": 5999
+    "example_02": 5999,
+    "example_03": ""
   },
 
 
@@ -147,6 +157,7 @@
     "required": false,
     "example_01": "",
     "example_02": "yahoo.com",
+    "example_03": "",
     "encoded_name": "P_emaildomain_bin_anonymous",
     "encoded_func": "result = 1 if 'anonymous' in str(value).lower() else 0"
   },
@@ -158,6 +169,7 @@
     "required": false,
     "example_01": "",
     "example_02": "gmail.com",
+    "example_03": "",
     "encoded_name": "R_emaildomain_bin_google",
     "encoded_func": "result = 1 if 'gmail' in str(value).lower() else 0"
   },
@@ -172,7 +184,8 @@
     "min": 0,
     "max": 4700,
     "example_01": 1599,
-    "example_02": 1599
+    "example_02": 1599,
+    "example_03": 4700
   },
   {
     "name": "C5",
@@ -183,7 +196,8 @@
     "min": 0,
     "max": 350,
     "example_01": "199",
-    "example_02": 199
+    "example_02": 199,
+    "example_03": 350
   },
   {
     "name": "C13",
@@ -194,7 +208,8 @@
     "min": 0,
     "max": 2920,
     "example_01": 1599,
-    "example_02": 1599
+    "example_02": 1599,
+    "example_03": 2500
   },
 
 
@@ -207,7 +222,8 @@
     "min": 0,
     "max": 640,
     "example_01": 100,
-    "example_02": 100
+    "example_02": 100,
+    "example_03": 300
   },
   {
     "name": "D2",
@@ -218,7 +234,8 @@
     "min": 0,
     "max": 640,
     "example_01": "",
-    "example_02": 200
+    "example_02": 200,
+    "example_03": ""
   },
   {
     "name": "D3",
@@ -229,7 +246,8 @@
     "min": 0,
     "max": 820,
     "example_01": "",
-    "example_02": 300
+    "example_02": 300,
+    "example_03": ""
   },
   {
     "name": "D4",
@@ -240,7 +258,8 @@
     "min": 0,
     "max": 870,
     "example_01": "",
-    "example_02": 400
+    "example_02": 400,
+    "example_03": ""
   },
   {
     "name": "D5",
@@ -251,7 +270,8 @@
     "min": 0,
     "max": 820,
     "example_01": "",
-    "example_02": 500
+    "example_02": 500,
+    "example_03": ""
   },
   {
     "name": "D6",
@@ -262,7 +282,8 @@
     "min": -85,
     "max": 880,
     "example_01": "",
-    "example_02": 600
+    "example_02": 600,
+    "example_03": ""
   },
   {
     "name": "D7",
@@ -273,7 +294,8 @@
     "min": 0,
     "max": 850,
     "example_01": "",
-    "example_02": 700
+    "example_02": 700,
+    "example_03": ""
   },
   {
     "name": "D8",
@@ -284,7 +306,8 @@
     "min": 0.00,
     "max": 1700.00,
     "example_01": "",
-    "example_02": 800.88
+    "example_02": 800.88,
+    "example_03": ""
   },
   {
     "name": "D9",
@@ -295,7 +318,8 @@
     "min": 0.00,
     "max": 1.00,
     "example_01": "",
-    "example_02": 0.55
+    "example_02": 0.55,
+    "example_03": ""
   },
   {
     "name": "D10",
@@ -306,7 +330,8 @@
     "min": 0,
     "max": 880,
     "example_01": "",
-    "example_02": 100
+    "example_02": 100,
+    "example_03": ""
   },
   {
     "name": "D11",
@@ -317,7 +342,8 @@
     "min": 0,
     "max": 670,
     "example_01": "",
-    "example_02": 110
+    "example_02": 110,
+    "example_03": ""
   },
   {
     "name": "D12",
@@ -328,7 +354,8 @@
     "min": -85,
     "max": 650,
     "example_01": "",
-    "example_02": 120
+    "example_02": 120,
+    "example_03": ""
   },
   {
     "name": "D14",
@@ -339,7 +366,8 @@
     "min": -195,
     "max": 880,
     "example_01": "",
-    "example_02": 140
+    "example_02": 140,
+    "example_03": ""
   },
   {
     "name": "D15",
@@ -350,7 +378,8 @@
     "min": -85,
     "max": 880,
     "example_01": "",
-    "example_02": 150
+    "example_02": 150,
+    "example_03": ""
   },
 
 
@@ -362,6 +391,7 @@
     "required": false,
     "example_01": "",
     "example_02": "T",
+    "example_03": "",
     "encoded_name": "M3_F",
     "encoded_func": "result = 1 if value and value == 'F' else 0",
     "values": [
@@ -378,6 +408,7 @@
     "required": false,
     "example_01": "",
     "example_02": "M2",
+    "example_03": "",
     "encoded_name": "M4_nan",
     "encoded_func": "result = 1 if not value or str(value)=='nan' else 0",
     "values": [
@@ -400,6 +431,7 @@
     ],
     "example_01": "",
     "example_02": "F",
+    "example_03": "",
     "encoded_name": "M5_T",
     "encoded_func": "result = 1 if value and value == 'T' else 0"
   },
@@ -411,6 +443,7 @@
     "required": false,
     "example_01": "",
     "example_02": "T",
+    "example_03": "",
     "encoded_name": "M6_F",
     "encoded_func": "result = 1 if value and value == 'F' else 0",
     "values": [
@@ -427,6 +460,7 @@
     "required": false,
     "example_01": "",
     "example_02": "F",
+    "example_03": "",
     "encoded_name": "M9_F",
     "encoded_func": "result = 1 if value and value == 'F' else 0",
     "values": [
@@ -447,6 +481,7 @@
     "max": 6,
     "example_01": "",
     "example_02": 3,
+    "example_03": "",
     "values": [
       { "code": "",  "value": "" },
       { "code": "0", "value": "0" },
@@ -468,6 +503,7 @@
     "max": 6,
     "example_01": "",
     "example_02": 3,
+    "example_03": "",
     "values": [
       { "code": "",  "value": "" },
       { "code": "0", "value": "0" },
@@ -489,6 +525,7 @@
     "max": 15,
     "example_01": "",
     "example_02": 8,
+    "example_03": "",
     "values": [
       { "code": "",   "value": "" },
       { "code": "0",  "value": "0" },
@@ -519,6 +556,7 @@
     "max": 9,
     "example_01": "",
     "example_02": 5,
+    "example_03": "",
     "values": [
       { "code": "",   "value": "" },
       { "code": "0",  "value": "0" },
@@ -543,6 +581,7 @@
     "max": 5,
     "example_01": "",
     "example_02": 3,
+    "example_03": "",
     "values": [
       { "code": "",   "value": "" },
       { "code": "0",  "value": "0" },
@@ -563,6 +602,7 @@
     "max": 54,
     "example_01": "",
     "example_02": 25,
+    "example_03": "",
     "values": [
       { "code": "",   "value": "" },
       { "code": "0",  "value": "0" },
@@ -632,6 +672,7 @@
     "max": 48,
     "example_01": "",
     "example_02": 24,
+    "example_03": "",
     "values": [
       { "code": "",   "value": "" },
       { "code": "0",  "value": "0" },
@@ -695,6 +736,7 @@
     "max": 12,
     "example_01": "",
     "example_02": 6,
+    "example_03": "",
     "values": [
       { "code": "",   "value": "" },
       { "code": "0",  "value": "0" },
@@ -722,6 +764,7 @@
     "max": 6,
     "example_01": "",
     "example_02": 3,
+    "example_03": "",
     "values": [
       { "code": "",   "value": "" },
       { "code": "0",  "value": "0" },
@@ -743,6 +786,7 @@
     "max": 51,
     "example_01": "",
     "example_02": 25,
+    "example_03": "",
     "values": [
       { "code": "",   "value": "" },
       { "code": "0",  "value": "0" },
@@ -809,6 +853,7 @@
     "max": 10,
     "example_01": "",
     "example_02": 5,
+    "example_03": "",
     "values": [
       { "code": "",   "value": "" },
       { "code": "0",  "value": "0" },
@@ -834,6 +879,7 @@
     "max": 8,
     "example_01": "",
     "example_02": 4,
+    "example_03": "",
     "values": [
       { "code": "",   "value": "" },
       { "code": "0",  "value": "0" },
@@ -857,6 +903,7 @@
     "max": 6,
     "example_01": "",
     "example_02": 3,
+    "example_03": "",
     "values": [
       { "code": "",   "value": "" },
       { "code": "0",  "value": "0" },
@@ -878,6 +925,7 @@
     "max": 30,
     "example_01": "",
     "example_02": 15,
+    "example_03": "",
     "values": [
       { "code": "",   "value": "" },
       { "code": "0",  "value": "0" },
@@ -923,6 +971,7 @@
     "max": 19,
     "example_01": "",
     "example_02": 9,
+    "example_03": "",
     "values": [
       { "code": "",   "value": "" },
       { "code": "0",  "value": "0" },
@@ -957,6 +1006,7 @@
     "max": 7,
     "example_01": "",
     "example_02": 3,
+    "example_03": "",
     "values": [
       { "code": "",   "value": "" },
       { "code": "0",  "value": "0" },
@@ -979,6 +1029,7 @@
     "max": 30,
     "example_01": "",
     "example_02": 15,
+    "example_03": "",
     "values": [
       { "code": "",   "value": "" },
       { "code": "0",  "value": "0" },
@@ -1023,7 +1074,8 @@
     "min": 0,
     "max": 1410,
     "example_01": 799,
-    "example_02": 799
+    "example_02": 799,
+    "example_03": 600
   },
   {
     "name": "V127",
@@ -1034,7 +1086,8 @@
     "min": 0,
     "max": 160000,
     "example_01": 90000,
-    "example_02": 90000
+    "example_02": 90000,
+    "example_03": 15000
   },
   {
     "name": "V142",
@@ -1046,6 +1099,7 @@
     "max": 9,
     "example_01": "",
     "example_02": 5,
+    "example_03": "",
     "values": [
       { "code": "",   "value": "" },
       { "code": "0",  "value": "0" },
@@ -1070,6 +1124,7 @@
     "max": 24,
     "example_01": "",
     "example_02": 12,
+    "example_03": "",
     "values": [
       { "code": "",   "value": "" },
       { "code": "0",  "value": "0" },
@@ -1108,7 +1163,8 @@
     "min": 0.00,
     "max": 650000.00,
     "example_01": "",
-    "example_02": 325000.00
+    "example_02": 325000.00,
+    "example_03": ""
   },
   {
     "name": "V162",
@@ -1119,7 +1175,8 @@
     "min": 0,
     "max": 3300,
     "example_01": "",
-    "example_02": 2300
+    "example_02": 2300,
+    "example_03": ""
   },
   {
     "name": "V171",
@@ -1131,6 +1188,7 @@
     "max": 61,
     "example_01": "",
     "example_02": 31,
+    "example_03": "",
     "values": [
       { "code": "",   "value": "" },
       { "code": "0",  "value": "0" },
@@ -1207,6 +1265,7 @@
     "max": 21,
     "example_01": "",
     "example_02": 11,
+    "example_03": "",
     "values": [
       { "code": "",   "value": "" },
       { "code": "0",  "value": "0" },
@@ -1242,7 +1301,8 @@
     "min": 0,
     "max": 384,
     "example_01": "",
-    "example_02": 172
+    "example_02": 172,
+    "example_03": ""
   },
   {
     "name": "V221",
@@ -1253,7 +1313,8 @@
     "min": 0,
     "max": 140000,
     "example_01": "",
-    "example_02": 70000
+    "example_02": 70000,
+    "example_03": ""
   },
   {
     "name": "V264",
@@ -1264,7 +1325,8 @@
     "min": 0,
     "max": 153600,
     "example_01": "",
-    "example_02": 73600
+    "example_02": 73600,
+    "example_03": ""
   },
   {
     "name": "V282",
@@ -1276,6 +1338,7 @@
     "max": 32,
     "example_01": "",
     "example_02": 16,
+    "example_03": "",
     "values": [
       { "code": "",   "value": "" },
       { "code": "0",  "value": "0" },
@@ -1323,6 +1386,7 @@
     "max": 68,
     "example_01": "",
     "example_02": 34,
+    "example_03": "2",
     "values": [
       { "code": "",   "value": "" },
       { "code": "0",  "value": "0" },
@@ -1405,7 +1469,8 @@
     "min": 0,
     "max": 95,
     "example_01": 48,
-    "example_02": 48
+    "example_02": 48,
+    "example_03": 90
   },
   {
     "name": "V289",
@@ -1417,6 +1482,7 @@
     "max": 12,
     "example_01": 6,
     "example_02": 6,
+    "example_03": 1,
     "values": [
       { "code": "",   "value": "" },
       { "code": "0",  "value": "0" },
@@ -1443,7 +1509,8 @@
     "min": 0.00,
     "max": 146000.00,
     "example_01": "",
-    "example_02": 76000.00
+    "example_02": 76000.00,
+    "example_03": ""
   },
   {
     "name": "V310",
@@ -1454,7 +1521,8 @@
     "min": 0,
     "max": 55200,
     "example_01": 27600,
-    "example_02": 27600
+    "example_02": 27600,
+    "example_03": 30000
   },
   {
     "name": "V312",
@@ -1465,7 +1533,8 @@
     "min": 0,
     "max": 55200,
     "example_01": 27600,
-    "example_02": 27600
+    "example_02": 27600,
+    "example_03": 28000
   },
   {
     "name": "V314",
@@ -1476,7 +1545,8 @@
     "min": 0.00,
     "max": 7520.00,
     "example_01": 3999.00,
-    "example_02": 3999.00
+    "example_02": 3999.00,
+    "example_03": 1500.00
   },
 
 
@@ -1490,6 +1560,7 @@
     "max": -100,
     "example_01": -50,
     "example_02": -50,
+    "example_03": -10,
     "values": [
       { "code": "0",   "value": "0" },
       { "code": "-1",  "value": "-1" },
@@ -1603,7 +1674,8 @@
     "min": 0,
     "max": 999999,
     "example_01": "",
-    "example_02": 500000
+    "example_02": 500000,
+    "example_03": ""
   },
   {
     "name": "id_05",
@@ -1614,7 +1686,8 @@
     "min": -72,
     "max": 52,
     "example_01": "",
-    "example_02": 0
+    "example_02": 0,
+    "example_03": ""
   },
   {
     "name": "id_06",
@@ -1626,6 +1699,7 @@
     "max": -100,
     "example_01": "",
     "example_02": -50,
+    "example_03": "",
     "values": [
       { "code": "0",   "value": "0" },
       { "code": "-1",  "value": "-1" },
@@ -1740,6 +1814,7 @@
     "max": 25,
     "example_01": "",
     "example_02": -10,
+    "example_03": "",
     "values": [
       { "code": "",    "value": "" },
       { "code": "-36", "value": "-36" },
@@ -1814,6 +1889,7 @@
     "required": true,
     "example_01": "Found",
     "example_02": "Found",
+    "example_03": "Found",
     "encoded_name": "id_12_Found",
     "encoded_func": "result = 1 if value and value.lower() == 'Found'.lower() else 0",
     "values": [
@@ -1830,7 +1906,8 @@
     "min": 100,
     "max": 228,
     "example_01": "",
-    "example_02": 164
+    "example_02": 164,
+    "example_03": ""
   },
   {
     "name": "id_30",
@@ -1840,6 +1917,7 @@
     "required": false,
     "example_01": "",
     "example_02": "Android",
+    "example_03": "iOS",
     "encoded_name": "OS_id_30_Mac",
     "encoded_func": "result = 1 if value and 'Mac'.lower() in value.lower() else 0"
   },
@@ -1851,6 +1929,7 @@
     "required": false,
     "example_01": "",
     "example_02": "Chrome",
+    "example_03": "Safari",
     "encoded_name": "Browser_id_31_Internet Explorer",
     "encoded_func": "result = 1 if value and 'Explorer'.lower() in value.lower() else 0"
   },
@@ -1864,6 +1943,7 @@
     "required": true,
     "example_01": "mobile",
     "example_02": "mobile",
+    "example_03": "mobile",
     "encoded_name": "DeviceType_mobile",
     "encoded_func": "result = 1 if value and value.lower() == 'mobile'.lower() else 0",
     "values": [
@@ -1879,6 +1959,7 @@
     "required": false,
     "example_01": "",
     "example_02": "Samsung",
+    "example_03": "Apple",
     "encoded_name": "device_name_Trident",
     "encoded_func": "result = 1 if value and 'Trident'.lower() in value.lower() else 0"
   }
