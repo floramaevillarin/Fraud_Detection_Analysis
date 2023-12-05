@@ -44,7 +44,7 @@
                   "example": 123.45
                 },
                 "ProductCD": {
-                  "description": "Product Code",
+                  "description": "Product Code (values: C, H, R, S, W)",
                   "type": "string",
                   "nullable": false,
                   "example": "H"

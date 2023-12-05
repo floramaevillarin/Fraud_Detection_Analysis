@@ -15,14 +15,15 @@
   {
     "name": "ProductCD",
     "label": "Product Code",
-    "labelPlus": "(values: C, H, R, S)",
+    "labelPlus": "(values: C, H, R, S, W)",
     "type": "list",
     "required": true,
     "values": [
       { "code": "C", "value": "C (product)" },
       { "code": "H", "value": "H (product)" },
       { "code": "R", "value": "R (product)" },
-      { "code": "S", "value": "S (product)" }
+      { "code": "S", "value": "S (product)" },
+      { "code": "W", "value": "W (product)" }
     ],
     "example_01": "H",
     "example_02": "H",
