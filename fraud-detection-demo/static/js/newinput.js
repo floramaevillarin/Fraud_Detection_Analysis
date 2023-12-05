@@ -212,39 +212,39 @@ function read_json() {
                  break;
                  
             case "number":
-                 
-                 if (paramList[i].required)
+                  
+                 if (paramList[i].value == "")
                  {
-                    if (paramList[i].value == "")
+                    if (paramList[i].required)
                     {
                        alert(paramList[i].label + " is required!");
                        paramList[i].focus();
                        return;
-                    }
-                    else
+                    };
+                 }
+                 else
+                 {
+                    if (paramList[i].subtype == "integer")
                     {
-                       if (paramList[i].subtype == "integer")
+                       if (paramList[i].value.indexOf(".") > -1 || paramList[i].value.indexOf(",") > -1)
                        {
-                          if (paramList[i].value.indexOf(".") > -1 || paramList[i].value.indexOf(",") > -1)
-                          {
-                             alert(paramList[i].label + " must be an integer value");
-                             paramList[i].focus();
-                             return;
-                          };
-                       };
-                       
-                       const valField = parseFloat(paramList[i].value);
-                       const minField = parseFloat(paramList[i].min);
-                       const maxField = parseFloat(paramList[i].max);
-                       
-                       if (valField < minField || valField > maxField)
-                       {
-                          alert(paramList[i].label + " must be between " + minField + " and " + maxField);
+                          alert(paramList[i].label + " must be an integer value");
                           paramList[i].focus();
                           return;
                        };
-
                     };
+                       
+                    const valField = parseFloat(paramList[i].value);
+                    const minField = parseFloat(paramList[i].min);
+                    const maxField = parseFloat(paramList[i].max);
+                       
+                    if (valField < minField || valField > maxField)
+                    {
+                       alert(paramList[i].label + " must be between " + minField + " and " + maxField);
+                       paramList[i].focus();
+                       return;
+                    };
+
                  };
                  
                  break;
