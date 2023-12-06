@@ -1,4 +1,3 @@
-# fraud-detection
 Fraud Detection Analysis
 
 Problem Statement:
